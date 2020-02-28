@@ -1,0 +1,17 @@
+C:\Users\Mateusz\Desktop\EmployeeManager\EmployeeManager\Domain\bin\Debug\netcoreapp2.1\Domain.deps.json
+C:\Users\Mateusz\Desktop\EmployeeManager\EmployeeManager\Domain\bin\Debug\netcoreapp2.1\Domain.dll
+C:\Users\Mateusz\Desktop\EmployeeManager\EmployeeManager\Domain\bin\Debug\netcoreapp2.1\Domain.pdb
+C:\Users\Mateusz\Desktop\EmployeeManager\EmployeeManager\Domain\obj\Debug\netcoreapp2.1\Domain.csprojAssemblyReference.cache
+C:\Users\Mateusz\Desktop\EmployeeManager\EmployeeManager\Domain\obj\Debug\netcoreapp2.1\Domain.csproj.CoreCompileInputs.cache
+C:\Users\Mateusz\Desktop\EmployeeManager\EmployeeManager\Domain\obj\Debug\netcoreapp2.1\Domain.AssemblyInfoInputs.cache
+C:\Users\Mateusz\Desktop\EmployeeManager\EmployeeManager\Domain\obj\Debug\netcoreapp2.1\Domain.AssemblyInfo.cs
+C:\Users\Mateusz\Desktop\EmployeeManager\EmployeeManager\Domain\obj\Debug\netcoreapp2.1\Domain.dll
+C:\Users\Mateusz\Desktop\EmployeeManager\EmployeeManager\Domain\obj\Debug\netcoreapp2.1\Domain.pdb
+D:\EmployeeManager\EmployeeManager\Domain\bin\Debug\netcoreapp2.1\Domain.deps.json
+D:\EmployeeManager\EmployeeManager\Domain\bin\Debug\netcoreapp2.1\Domain.dll
+D:\EmployeeManager\EmployeeManager\Domain\bin\Debug\netcoreapp2.1\Domain.pdb
+D:\EmployeeManager\EmployeeManager\Domain\obj\Debug\netcoreapp2.1\Domain.csprojAssemblyReference.cache
+D:\EmployeeManager\EmployeeManager\Domain\obj\Debug\netcoreapp2.1\Domain.AssemblyInfoInputs.cache
+D:\EmployeeManager\EmployeeManager\Domain\obj\Debug\netcoreapp2.1\Domain.AssemblyInfo.cs
+D:\EmployeeManager\EmployeeManager\Domain\obj\Debug\netcoreapp2.1\Domain.dll
+D:\EmployeeManager\EmployeeManager\Domain\obj\Debug\netcoreapp2.1\Domain.pdb
