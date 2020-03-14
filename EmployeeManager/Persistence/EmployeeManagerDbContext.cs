@@ -1,11 +1,12 @@
 ﻿using Application.Interfaces;
 using Domain.Entities;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Persistence.Configurations;
 
 namespace Persistence
 {
-    public class EmployeeManagerDbContext: DbContext, IEmployeeManagerDbContext
+    public class EmployeeManagerDbContext: IdentityDbContext, IEmployeeManagerDbContext
     {
 
         public EmployeeManagerDbContext(DbContextOptions<EmployeeManagerDbContext> options)
@@ -23,7 +24,7 @@ namespace Persistence
             modelBuilder.ApplyConfiguration(new EmployeeConfiguration());
             modelBuilder.ApplyConfiguration(new CustomerConfiguration());
             modelBuilder.ApplyConfiguration(new CompanyConfiguration());
-
+            base.OnModelCreating(modelBuilder);
         }
     }
 }

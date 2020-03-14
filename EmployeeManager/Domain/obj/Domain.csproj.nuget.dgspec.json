@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\EmployeeManager\\EmployeeManager\\Domain\\Domain.csproj": {}
+    "C:\\Users\\Mateusz\\Desktop\\EmployeeManager\\EmployeeManager\\Domain\\Domain.csproj": {}
   },
   "projects": {
-    "D:\\EmployeeManager\\EmployeeManager\\Domain\\Domain.csproj": {
+    "C:\\Users\\Mateusz\\Desktop\\EmployeeManager\\EmployeeManager\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\EmployeeManager\\EmployeeManager\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\Mateusz\\Desktop\\EmployeeManager\\EmployeeManager\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "D:\\EmployeeManager\\EmployeeManager\\Domain\\Domain.csproj",
+        "projectPath": "C:\\Users\\Mateusz\\Desktop\\EmployeeManager\\EmployeeManager\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\Mateusz\\.nuget\\packages\\",
-        "outputPath": "D:\\EmployeeManager\\EmployeeManager\\Domain\\obj\\",
+        "outputPath": "C:\\Users\\Mateusz\\Desktop\\EmployeeManager\\EmployeeManager\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

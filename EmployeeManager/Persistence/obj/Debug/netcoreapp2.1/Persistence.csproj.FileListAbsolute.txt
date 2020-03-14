@@ -1,7 +1,6 @@
 C:\Users\Mateusz\Desktop\EmployeeManager\EmployeeManager\Persistence\bin\Debug\netcoreapp2.1\Persistence.deps.json
 C:\Users\Mateusz\Desktop\EmployeeManager\EmployeeManager\Persistence\bin\Debug\netcoreapp2.1\Persistence.dll
 C:\Users\Mateusz\Desktop\EmployeeManager\EmployeeManager\Persistence\obj\Debug\netcoreapp2.1\Persistence.csprojAssemblyReference.cache
-C:\Users\Mateusz\Desktop\EmployeeManager\EmployeeManager\Persistence\obj\Debug\netcoreapp2.1\Persistence.csproj.CoreCompileInputs.cache
 C:\Users\Mateusz\Desktop\EmployeeManager\EmployeeManager\Persistence\obj\Debug\netcoreapp2.1\Persistence.AssemblyInfoInputs.cache
 C:\Users\Mateusz\Desktop\EmployeeManager\EmployeeManager\Persistence\obj\Debug\netcoreapp2.1\Persistence.AssemblyInfo.cs
 C:\Users\Mateusz\Desktop\EmployeeManager\EmployeeManager\Persistence\bin\Debug\netcoreapp2.1\Persistence.pdb

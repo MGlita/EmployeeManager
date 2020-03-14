@@ -3,7 +3,6 @@ C:\Users\Mateusz\Desktop\EmployeeManager\EmployeeManager\EmployeeManager\bin\Deb
 C:\Users\Mateusz\Desktop\EmployeeManager\EmployeeManager\EmployeeManager\bin\Debug\netcoreapp2.1\Presentation.runtimeconfig.dev.json
 C:\Users\Mateusz\Desktop\EmployeeManager\EmployeeManager\EmployeeManager\bin\Debug\netcoreapp2.1\Presentation.dll
 C:\Users\Mateusz\Desktop\EmployeeManager\EmployeeManager\EmployeeManager\obj\Debug\netcoreapp2.1\Presentation.csprojAssemblyReference.cache
-C:\Users\Mateusz\Desktop\EmployeeManager\EmployeeManager\EmployeeManager\obj\Debug\netcoreapp2.1\Presentation.csproj.CoreCompileInputs.cache
 C:\Users\Mateusz\Desktop\EmployeeManager\EmployeeManager\EmployeeManager\obj\Debug\netcoreapp2.1\Presentation.RazorAssemblyInfo.cache
 C:\Users\Mateusz\Desktop\EmployeeManager\EmployeeManager\EmployeeManager\obj\Debug\netcoreapp2.1\Presentation.RazorAssemblyInfo.cs
 C:\Users\Mateusz\Desktop\EmployeeManager\EmployeeManager\EmployeeManager\obj\Debug\netcoreapp2.1\Presentation.AssemblyInfoInputs.cache
@@ -42,3 +41,6 @@ D:\EmployeeManager\EmployeeManager\EmployeeManager\obj\Debug\netcoreapp2.1\Prese
 D:\EmployeeManager\EmployeeManager\EmployeeManager\obj\Debug\netcoreapp2.1\Presentation.csproj.CopyComplete
 D:\EmployeeManager\EmployeeManager\EmployeeManager\obj\Debug\netcoreapp2.1\Presentation.dll
 D:\EmployeeManager\EmployeeManager\EmployeeManager\obj\Debug\netcoreapp2.1\Presentation.pdb
+C:\Users\Mateusz\Desktop\EmployeeManager\EmployeeManager\EmployeeManager\bin\Debug\netcoreapp2.1\appsettings.Development.json
+C:\Users\Mateusz\Desktop\EmployeeManager\EmployeeManager\EmployeeManager\bin\Debug\netcoreapp2.1\appsettings.json
+C:\Users\Mateusz\Desktop\EmployeeManager\EmployeeManager\EmployeeManager\bin\Debug\netcoreapp2.1\Properties\launchSettings.json

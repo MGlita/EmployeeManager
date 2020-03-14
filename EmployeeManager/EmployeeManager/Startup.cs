@@ -10,6 +10,7 @@ using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -35,6 +36,8 @@ namespace EmployeeManager
             services.AddMvc()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
                 .AddFluentValidation(x=>x.RegisterValidatorsFromAssembly(AppDomain.CurrentDomain.Load("Application")));
+            services.AddDefaultIdentity<IdentityUser>()
+                .AddEntityFrameworkStores<EmployeeManagerDbContext>();
             services.AddSwaggerDocument();
             services.AddMediatR(AppDomain.CurrentDomain.Load("Application"));
             services.AddAutoMapper(AppDomain.CurrentDomain.Load("Application"));
