@@ -10,6 +10,7 @@
     <PackageReference Include="FluentValidation.AspNetCore" Version="8.6.1" />
     <PackageReference Include="MediatR" Version="8.0.0" />
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="8.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="2.1.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.1.1" />
   </ItemGroup>
 
@@ -18,6 +19,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Account\Commands\Responses\" />
+    <Folder Include="Account\Queries\Responses\" />
     <Folder Include="Companies\Commands\Responses\" />
     <Folder Include="Companies\Queries\Responses\" />
     <Folder Include="Customers\Commands\Responses\" />
