@@ -63,6 +63,7 @@ namespace EmployeeManager
                         ClockSkew = TimeSpan.Zero // remove delay of token when expire
                     };
                 });
+            services.AddCors();
 
             services.Configure<IdentityOptions>(options =>
             {
@@ -108,7 +109,10 @@ namespace EmployeeManager
             {
                 app.UseHsts();
             }
-
+            app.UseCors(options =>
+            options.WithOrigins("http://localhost:4200")
+            .AllowAnyMethod()
+            .AllowAnyHeader());
             app.UseOpenApi();
             app.UseSwaggerUi3();
             app.UseHttpsRedirection();
