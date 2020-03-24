@@ -30,17 +30,17 @@ namespace Presentation.Controllers
         }
 
         [HttpPost]
-        public async Task<object> Login([FromBody] LoginReq model)
+        public async Task<object> Login([FromBody] LoginDto model)
         {
-            var resp = await _mediator.Send(model);
-            return await GenerateJwtToken(resp.Item1, resp.Item2);
+            var resp = await _mediator.Send(new LoginReq { Model = model });
+            return Json(GenerateJwtToken(resp.Item1, resp.Item2).Result);
         }
 
         [HttpPost]
         public async Task<object> Register([FromBody] RegisterReq model)
         {
             var resp = await _mediator.Send(model);
-            return await GenerateJwtToken(resp.Item1, resp.Item2);
+            return Json(GenerateJwtToken(resp.Item1, resp.Item2).Result);
         }
 
         private async Task<object> GenerateJwtToken(string email, IdentityUser user)
