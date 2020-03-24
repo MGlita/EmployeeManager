@@ -44,9 +44,9 @@ namespace Presentation.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<Unit> DeleteEmployee(int id)
+        public async Task<Unit> DeleteEmployee(string id)
         {
-            return await _mediator.Send(new DeleteEmployee { Id = id });
+            return await _mediator.Send(new DeleteEmployee { Id = int.Parse(id) });
         }
     }
 }
