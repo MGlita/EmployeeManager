@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Application.Account.Queries.Requests
 {
-    public class LoginReq : IRequest<Tuple<string, IdentityUser>>
+    public class LoginReq : IRequest<Tuple<string, IdentityUser, string>>
     {
         public LoginDto Model { get; set; }
     }

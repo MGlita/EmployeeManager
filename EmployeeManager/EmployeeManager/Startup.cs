@@ -6,6 +6,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using Application.Interfaces;
+using Application.Roles;
 using AutoMapper;
 using FluentValidation.AspNetCore;
 using MediatR;
@@ -99,7 +100,7 @@ namespace EmployeeManager
 
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, IServiceProvider services)
         {
             if (env.IsDevelopment())
             {
@@ -111,8 +112,8 @@ namespace EmployeeManager
             }
             app.UseCors(options =>
             options.WithOrigins("http://localhost:4200")
-            .AllowAnyMethod()
-            .AllowAnyHeader());
+                .AllowAnyMethod()
+                .AllowAnyHeader());
             app.UseOpenApi();
             app.UseSwaggerUi3();
             app.UseHttpsRedirection();
@@ -120,6 +121,8 @@ namespace EmployeeManager
             app.UseAuthentication();
 
             app.UseMvc();
+
+            RolesCommandHandler.CreateUserRoles(services).Wait();
         }
     }
 }

@@ -33,23 +33,24 @@ namespace Presentation.Controllers
         public async Task<object> Login([FromBody] LoginDto model)
         {
             var resp = await _mediator.Send(new LoginReq { Model = model });
-            return Json(GenerateJwtToken(resp.Item1, resp.Item2).Result);
+            return Json(GenerateJwtToken(resp.Item1, resp.Item2, resp.Item3).Result);
         }
 
         [HttpPost]
-        public async Task<object> Register([FromBody] RegisterReq model)
+        public async Task<object> Register([FromBody] RegisterDto model)
         {
-            var resp = await _mediator.Send(model);
-            return Json(GenerateJwtToken(resp.Item1, resp.Item2).Result);
+            var resp = await _mediator.Send(new RegisterReq { Model = model });
+            return Json(GenerateJwtToken(resp.Item1, resp.Item2, resp.Item3).Result);
         }
 
-        private async Task<object> GenerateJwtToken(string email, IdentityUser user)
+        private async Task<object> GenerateJwtToken(string email, IdentityUser user, string role)
         {
             var claims = new List<Claim>
             {
                 new Claim(JwtRegisteredClaimNames.Sub, email),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-                new Claim(ClaimTypes.NameIdentifier, user.Id)
+                new Claim(ClaimTypes.NameIdentifier, user.Id),
+                new Claim(ClaimTypes.Role, role)
             };
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JwtKey"]));

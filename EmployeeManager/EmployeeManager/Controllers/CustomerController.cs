@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Presentation.Controllers
 {
-    [Authorize]
+    [Authorize(Roles ="Sales, Marketing")]
     [Route("api/[controller]")]
     [ApiController]
     public class CustomerController : ControllerBase

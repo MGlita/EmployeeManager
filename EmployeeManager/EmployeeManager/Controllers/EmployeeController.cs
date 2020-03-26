@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Presentation.Controllers
 {
-    [Authorize]
+    [Authorize(Roles ="HR")]
     [Route("api/[controller]")]
     [ApiController]
     public class EmployeeController : ControllerBase

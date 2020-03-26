@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Application.Account.Commands.Requests
 {
-    public class RegisterReq : IRequest<Tuple<string, IdentityUser>>
+    public class RegisterReq : IRequest<Tuple<string, IdentityUser, string>>
     {
         public RegisterDto Model { get; set; }
     }

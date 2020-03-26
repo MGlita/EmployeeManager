@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Application.Account.Commands
 {
-    public class AccountCommandHandler : IRequestHandler<RegisterReq, Tuple<string, IdentityUser>>
+    public class AccountCommandHandler : IRequestHandler<RegisterReq, Tuple<string, IdentityUser, string>>
     {
         private readonly UserManager<IdentityUser> _userManager;
         private readonly SignInManager<IdentityUser> _signInManager;
@@ -20,7 +20,7 @@ namespace Application.Account.Commands
             _signInManager = signInManager;
         }
 
-        public async Task<Tuple<string, IdentityUser>> Handle(RegisterReq request, CancellationToken cancellationToken)
+        public async Task<Tuple<string, IdentityUser, string>> Handle(RegisterReq request, CancellationToken cancellationToken)
         {
             var user = new IdentityUser
             {
@@ -31,8 +31,9 @@ namespace Application.Account.Commands
 
             if (result.Succeeded)
             {
+                await _userManager.AddToRoleAsync(user, request.Model.Role);
                 await _signInManager.SignInAsync(user, false);
-                return new Tuple<string, IdentityUser>(request.Model.Email, user);
+                return new Tuple<string, IdentityUser, string>(request.Model.Email, user, request.Model.Role);
             }
 
             throw new ApplicationException("UNKNOWN_ERROR");
