@@ -1,6 +1,13 @@
-<div>
-    <input type="email" name="login" id="login"><br>
-    <input type="password" name="pass" id="pass"><br>
-    <input type="submit" (click)="Test()" value="Login">
 
+<div class="container2">
+    <div class="wrap-login">
+        <form action="">
+            <span class="login-elem login-greet p">Welcome</span>
+            <span class="login-elem p-lg img-login"><img class="img-login" src="../../favicon.ico" alt=""></span>
+            <input class="form-control input" type="email" name="login" id="login" placeholder="Email">
+            <input class="form-control input" type="password" name="pass" id="pass" placeholder="Password">
+            <input class="btn btn-primary btn-lg input" type="submit" (click)="Test()" value="Login">
+            <span class="login-elem">Don`t have an account? <a routerLink="/register">Sign Up</a></span>
+        </form>
+    </div>
 </div>

@@ -29,7 +29,7 @@ import { RoleGuardService } from './auth/role-guard.service';
     BrowserModule,
     AppRoutingModule,
     JwtModule.forRoot({config:{skipWhenExpired:true}}),
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [
     AuthGuardService,
