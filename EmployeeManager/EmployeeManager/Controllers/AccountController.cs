@@ -30,10 +30,18 @@ namespace Presentation.Controllers
         }
 
         [HttpPost]
-        public async Task<object> Login([FromBody] LoginDto model)
+        public async Task<IActionResult> Login([FromBody] LoginDto model)
         {
-            var resp = await _mediator.Send(new LoginReq { Model = model });
-            return Json(GenerateJwtToken(resp.Item1, resp.Item2, resp.Item3).Result);
+            try
+            {
+                var resp = await _mediator.Send(new LoginReq { Model = model });
+                return Json(GenerateJwtToken(resp.Item1, resp.Item2, resp.Item3).Result);
+            }
+            catch (Exception)
+            {
+                return Unauthorized();
+            }
+            
         }
 
         [HttpPost]

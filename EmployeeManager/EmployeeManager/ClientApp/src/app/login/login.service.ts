@@ -10,7 +10,11 @@ export class LoginService {
 
   constructor(private httpClient: HttpClient) { }
 
-  public Login(login: Login){
+  public login(login: Login){
     return this.httpClient.post(this.apiUrl+"/Login",login);
+  }
+
+  public logout(){
+    localStorage.removeItem('token');
   }
 }

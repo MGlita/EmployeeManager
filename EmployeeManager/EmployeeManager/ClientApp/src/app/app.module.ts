@@ -17,6 +17,7 @@ import { AuthInterceptor } from './auth/AuthInterceptor';
 import { CustomerComponent } from './customer/customer.component';
 import { RoleGuardService } from './auth/role-guard.service';
 import { RegisterComponent } from './register/register.component';
+import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,8 @@ import { RegisterComponent } from './register/register.component';
     AppRoutingModule,
     JwtModule.forRoot({config:{skipWhenExpired:true}}),
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [
     AuthGuardService,
