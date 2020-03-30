@@ -1,15 +1,15 @@
 .input{
     display: block;
     width: 100%;
-}
-.input[type=email]{
     margin-bottom: 20px;
 }
-.input[type=password]{
-    margin-bottom: 40px;
-}
+
 .input[type=submit]{
+    margin-top: 40px;
     margin-bottom: 40px;
+    border-radius: 20px;
+}
+.input[type=button]{
     border-radius: 20px;
 }
 .wrap-login{

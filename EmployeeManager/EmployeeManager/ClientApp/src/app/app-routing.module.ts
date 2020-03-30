@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { EmployeesComponent } from './employees/employees.component';
 import { LoginComponent } from './login/login.component';
 import { CustomerComponent } from './customer/customer.component';
+import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -30,6 +31,7 @@ const routes: Routes = [
     }  
   },
   { path: 'login', component: LoginComponent},
+  { path: 'register', component: RegisterComponent},
   { path: '**', redirectTo: '' }
 ];
 

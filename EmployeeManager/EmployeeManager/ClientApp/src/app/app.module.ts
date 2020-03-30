@@ -16,6 +16,7 @@ import { EmployeeService } from './employees/employee.service';
 import { AuthInterceptor } from './auth/AuthInterceptor';
 import { CustomerComponent } from './customer/customer.component';
 import { RoleGuardService } from './auth/role-guard.service';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { RoleGuardService } from './auth/role-guard.service';
     LoginComponent,
     HomeComponent,
     EmployeesComponent,
-    CustomerComponent
+    CustomerComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
