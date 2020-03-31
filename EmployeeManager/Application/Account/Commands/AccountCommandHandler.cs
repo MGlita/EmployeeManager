@@ -3,6 +3,7 @@ using MediatR;
 using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -31,12 +32,12 @@ namespace Application.Account.Commands
 
             if (result.Succeeded)
             {
-                await _userManager.AddToRoleAsync(user, request.Model.Role);
+                await _userManager.AddToRoleAsync(user, "HR"/*request.Model.Role*/);
                 await _signInManager.SignInAsync(user, false);
                 return new Tuple<string, IdentityUser, string>(request.Model.Email, user, request.Model.Role);
             }
-
-            throw new ApplicationException("UNKNOWN_ERROR");
+            
+            throw new Exception(result.Errors.FirstOrDefault().Description);
         }
     }
 }

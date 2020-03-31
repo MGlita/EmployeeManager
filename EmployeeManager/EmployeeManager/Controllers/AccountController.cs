@@ -48,7 +48,7 @@ namespace Presentation.Controllers
         public async Task<object> Register([FromBody] RegisterDto model)
         {
             var resp = await _mediator.Send(new RegisterReq { Model = model });
-            return Json(GenerateJwtToken(resp.Item1, resp.Item2, resp.Item3).Result);
+            return Json(GenerateJwtToken(resp.Item1, resp.Item2, "HR"/*resp.Item3*/).Result);
         }
 
         private async Task<object> GenerateJwtToken(string email, IdentityUser user, string role)
