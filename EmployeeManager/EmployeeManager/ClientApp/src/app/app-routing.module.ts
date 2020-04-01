@@ -13,22 +13,24 @@ import { CustomerComponent } from './customer/customer.component';
 import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', component: HomeComponent,
+    canActivate: [AuthGuard]
+  },
   { 
     path: 'employees',
     component: EmployeesComponent,
-    canActivate: [RoleGuard], 
-    data: { 
-      expectedRole: 'HR'
-    }  
+    canActivate: [AuthGuard] 
+    // data: { 
+    //   expectedRole: 'HR'
+    // }  
   },
   { 
     path: 'customers',
     component: CustomerComponent,
-    canActivate: [RoleGuard], 
-    data: { 
-      expectedRole: 'Sales'
-    }  
+    canActivate: [AuthGuard] 
+    // data: { 
+    //   expectedRole: 'Sales'
+    // }  
   },
   { path: 'login', component: LoginComponent},
   { path: 'register', component: RegisterComponent},

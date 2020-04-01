@@ -18,6 +18,7 @@ import { CustomerComponent } from './customer/customer.component';
 import { RoleGuardService } from './auth/role-guard.service';
 import { RegisterComponent } from './register/register.component';
 import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    FontAwesomeModule
   ],
   providers: [
     AuthGuardService,

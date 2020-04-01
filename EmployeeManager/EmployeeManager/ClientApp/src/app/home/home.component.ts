@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { EmployeeService } from '../employees/employee.service';
+import { AuthService } from '../auth/auth.service';
+import { Router } from '@angular/router';
+import { faUserTie, faUserFriends, faTruckMoving } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'home',
@@ -7,14 +10,24 @@ import { EmployeeService } from '../employees/employee.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
-  
-constructor(private employeeService: EmployeeService) {}
+  faUserTie = faUserTie;
+  faUserFriends = faUserFriends;
+  faTruckMoving = faTruckMoving;
 
-  public DeleteToken(){
-    localStorage.setItem('token',"");
+constructor(
+  private authService: AuthService,
+  private router: Router, ) {
+  if(!this.authService.isAuthenticated())this.router.navigate(['login']);
+
+}
+
+  public onCustomers(){
+    this.router.navigate(["customers"]);
   }
-
-  public Test(){
-    this.employeeService.GetAllEmployees().subscribe(res=>{console.log(res)});
+  public onEmployees(){
+    this.router.navigate(["employees"]);
+  }
+  public onTrucks(){
+    this.router.navigate(["trucks"]);
   }
 }

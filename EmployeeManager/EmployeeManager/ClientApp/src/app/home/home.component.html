@@ -1,4 +1,14 @@
-<h1>Home</h1><br>
-<h2>Hello User</h2>
-<input type="submit" (click)="DeleteToken()" value="DeleteToken">
-<input type="submit" (click)="Test()" value="TestEmpl">
+<div class="container2">
+    <div>
+        <div class="block" (click)="onCustomers()"><fa-icon [icon]="faUserTie"></fa-icon></div>
+        <span class="desc">Customers</span>
+    </div>
+    <div>
+        <div class="block" (click)="onEmployees()"><fa-icon [icon]="faUserFriends"></fa-icon></div>
+        <span class="desc">Employees</span>
+    </div>
+    <div>
+        <div class="block" (click)="onTrucks()"><fa-icon [icon]="faTruckMoving"></fa-icon></div>
+        <span class="desc">Trucks</span>
+    </div>
+</div>
