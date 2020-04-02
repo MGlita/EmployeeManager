@@ -13,6 +13,8 @@ namespace Application.Interfaces
         DbSet<Employee> Employees { get; set; }
         DbSet<Customer> Customer { get; set; }
         DbSet<Company> Company { get; set; }
+        DbSet<Vehicle> Vehicle { get; set; }
+
 
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken));
     }

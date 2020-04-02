@@ -27,6 +27,8 @@
     <Folder Include="Customers\Queries\Responses\" />
     <Folder Include="Employees\Commands\Responses\" />
     <Folder Include="Employees\Queries\Responses\" />
+    <Folder Include="Vehicles\Commands\Responses\" />
+    <Folder Include="Vehicles\Queries\Responses\" />
   </ItemGroup>
 
 </Project>

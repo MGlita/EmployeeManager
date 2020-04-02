@@ -12,7 +12,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Presentation.Controllers
 {
-    [Authorize(Roles ="Sales, Marketing")]
+    //[Authorize(Roles ="Sales, Marketing")]
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class CompanyController : ControllerBase

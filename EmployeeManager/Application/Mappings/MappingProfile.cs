@@ -14,6 +14,7 @@ namespace Application.Mappings
             CreateMap<Employee, EmployeeDto>();
             CreateMap<Customer, CustomerDto>();
             CreateMap<Company, CompanyDto>();
+            CreateMap<Vehicle, VehicleDto>();
         }
     }
 }

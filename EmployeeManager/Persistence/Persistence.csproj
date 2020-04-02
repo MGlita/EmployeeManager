@@ -10,8 +10,12 @@
     <Compile Remove="Migrations\20200208100420_InitMigration.cs" />
     <Compile Remove="Migrations\20200225110859_ChangedEmployeeAddCustomerAndCompany.cs" />
     <Compile Remove="Migrations\20200225111527_test.cs" />
+    <Compile Remove="Migrations\20200314103017_AddUsers.cs" />
+    <Compile Remove="Migrations\20200314103017_AddUsers.Designer.cs" />
     <Compile Remove="Migrations\20200314103712_test.cs" />
     <Compile Remove="Migrations\20200314103712_test.Designer.cs" />
+    <Compile Remove="Migrations\20200314115621_AddUsersPart2.cs" />
+    <Compile Remove="Migrations\20200314115621_AddUsersPart2.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

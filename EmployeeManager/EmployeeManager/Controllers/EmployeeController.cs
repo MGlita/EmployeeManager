@@ -12,7 +12,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Presentation.Controllers
 {
-    [Authorize(Roles ="HR")]
+    //[Authorize(Roles ="HR")]
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class EmployeeController : ControllerBase

@@ -17,6 +17,7 @@ namespace Persistence
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Customer> Customer { get; set; }
         public DbSet<Company> Company { get; set; }
+        public DbSet<Vehicle> Vehicle { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -24,6 +25,7 @@ namespace Persistence
             modelBuilder.ApplyConfiguration(new EmployeeConfiguration());
             modelBuilder.ApplyConfiguration(new CustomerConfiguration());
             modelBuilder.ApplyConfiguration(new CompanyConfiguration());
+            modelBuilder.ApplyConfiguration(new VehicleConfiguration());
             base.OnModelCreating(modelBuilder);
         }
     }
