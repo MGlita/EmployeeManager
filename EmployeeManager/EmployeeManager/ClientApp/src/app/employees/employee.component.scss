@@ -1,0 +1,51 @@
+.block{
+    flex-direction: column;
+}
+.welcome-txt{
+    font-size: 50px;
+    font-weight: 400;
+    margin-bottom: 300px;
+    margin-top: 20px;
+}
+.container3 {
+    padding: 20px;
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+    flex-wrap: wrap;
+    background: #f2f2f2;
+    flex-direction: column;
+}
+
+mat-paginator{
+    width:60vw;
+    
+}
+
+.data {
+
+	display: block;
+	width: 95vw;
+	overflow: auto;
+
+	.table {
+		width: 60vw;
+		max-width: 100%;
+		overflow: auto;
+		margin-bottom: 10px;
+		display: table;
+		border-collapse: collapse;
+        margin: auto;
+
+		background-color: #fff;
+	}
+  
+}
+mat-paginator{
+min-width: 800px;
+margin:auto;
+}
+mat-cell{
+    min-width: 100px;
+    word-wrap: normal;
+}

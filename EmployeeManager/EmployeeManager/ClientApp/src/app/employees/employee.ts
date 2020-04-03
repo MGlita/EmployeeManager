@@ -1,5 +1,11 @@
 export class Employee {
     id: number;
-    name: string;
+    firstname: string;
     surname: string;
+    gender: string;
+    nationality: string;
+    phoneNumber: string;
+    birthDate: Date;
+    email: string;
+    department: number;
 }
