@@ -1,40 +1,39 @@
-<div class="container2">
-    <div class="wrap-login">
-        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-            <span class="login-elem login-greet p-reg">Join Us</span>
-            <input type="text" class="form-control input" [ngClass]="{ 'is-invalid': submitted && f.fullName.errors }" formControlName="fullName" name="fullName" id="fullName" placeholder="Full Name" required>
-            <div *ngIf="submitted && f.fullName.errors" class="alert alert-danger">
-                <div *ngIf="f.fullName.errors.required">Full Name is required</div>
-            </div>
-            <input type="email" class="form-control input" [ngClass]="{ 'is-invalid': submitted && f.login.errors }" formControlName="login" name="login" id="login" placeholder="Email" required>
-            <div *ngIf="submitted && f.login.errors" class="alert alert-danger">
-                <div *ngIf="f.login.errors.required">Email is required</div>
-                <div *ngIf="f.login.errors.email">Invalid email format</div>
-            </div>
-            <input type="password" class="form-control input" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" formControlName="password" name="pass" id="password" placeholder="Password" required>
-            <div *ngIf="submitted && f.password.errors" class="alert alert-danger">
-                <div *ngIf="f.password.errors.required">Password is required</div>
-                <div *ngIf="f.password.errors.minlength">Password should have at least 6 characters</div>
-                <div *ngIf="f.password.errors.pattern">Password should have at least one uppercase and special character</div>
-            </div>
-            <input type="password" class="form-control input" [ngClass]="{ 'is-invalid': submitted && f.passwordConf.errors }" formControlName="passwordConf" name="passConf" id="passwordConf" placeholder="Confirm Password" required>
-            <div *ngIf="submitted && f.passwordConf.errors" class="alert alert-danger">
-                <div *ngIf="f.passwordConf.errors.required">Repeat your password</div>                
-            </div>
-            <div *ngIf="submitted && f.password.value!=f.passwordConf.value && f.passwordConf.value!=''" class="alert alert-danger">             
-                <div>Passwords don't match.</div>
-            </div>
-            <button [disabled]="loading" type="submit" class="btn btn-primary btn-lg input">
-                <span *ngIf="!loading">Register</span>
-                <span *ngIf="loading" >
-                    Loading...
-                    <span class="spinner-border spinner-md"></span>
-                </span>
-            </button>
-            <div *ngIf="error" class="alert alert-danger">
-                {{error}}
-            </div>
-            <input type="button" routerLink="/login" class="btn btn-primary btn-back input" value="Go Back">
-        </form>
-    </div>
+<div class="wrap-login">
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <span class="login-elem login-greet p-reg">Join Us</span>
+        <input type="text" class="form-control input" [ngClass]="{ 'is-invalid': submitted && f.fullName.errors }" formControlName="fullName" name="fullName" id="fullName" placeholder="Full Name" required>
+        <div *ngIf="submitted && f.fullName.errors" class="alert alert-danger">
+            <div *ngIf="f.fullName.errors.required">Full Name is required</div>
+        </div>
+        <input type="email" class="form-control input" [ngClass]="{ 'is-invalid': submitted && f.login.errors }" formControlName="login" name="login" id="login" placeholder="Email" required>
+        <div *ngIf="submitted && f.login.errors" class="alert alert-danger">
+            <div *ngIf="f.login.errors.required">Email is required</div>
+            <div *ngIf="f.login.errors.email">Invalid email format</div>
+        </div>
+        <input type="password" class="form-control input" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" formControlName="password" name="pass" id="password" placeholder="Password" required>
+        <div *ngIf="submitted && f.password.errors" class="alert alert-danger">
+            <div *ngIf="f.password.errors.required">Password is required</div>
+            <div *ngIf="f.password.errors.minlength">Password should have at least 6 characters</div>
+            <div *ngIf="f.password.errors.pattern">Password should have at least one uppercase and special character</div>
+        </div>
+        <input type="password" class="form-control input" [ngClass]="{ 'is-invalid': submitted && f.passwordConf.errors }" formControlName="passwordConf" name="passConf" id="passwordConf" placeholder="Confirm Password" required>
+        <div *ngIf="submitted && f.passwordConf.errors" class="alert alert-danger">
+            <div *ngIf="f.passwordConf.errors.required">Repeat your password</div>                
+        </div>
+        <div *ngIf="submitted && f.password.value!=f.passwordConf.value && f.passwordConf.value!=''" class="alert alert-danger">             
+            <div>Passwords don't match.</div>
+        </div>
+        <button [disabled]="loading" type="submit" class="btn btn-primary btn-lg input">
+            <span *ngIf="!loading">Register</span>
+            <span *ngIf="loading" >
+                Loading...
+                <span class="spinner-border spinner-md"></span>
+            </span>
+        </button>
+        <div *ngIf="error" class="alert alert-danger">
+            {{error}}
+        </div>
+        <input type="button" routerLink="/login" class="btn btn-primary btn-back input" value="Go Back">
+    </form>
 </div>
+

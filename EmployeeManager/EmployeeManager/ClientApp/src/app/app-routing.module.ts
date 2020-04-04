@@ -7,10 +7,10 @@ import {
   RoleGuardService as RoleGuard 
 } from './auth/role-guard.service';
 import { HomeComponent } from './home/home.component';
-import { EmployeesComponent } from './employees/employees.component';
 import { LoginComponent } from './login/login.component';
 import { CustomerComponent } from './customer/customer.component';
 import { RegisterComponent } from './register/register.component';
+import { EmployeeComponent } from './employee/employee.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent,
@@ -18,7 +18,7 @@ const routes: Routes = [
   },
   { 
     path: 'employees',
-    component: EmployeesComponent,
+    component: EmployeeComponent,
     canActivate: [AuthGuard] 
     // data: { 
     //   expectedRole: 'HR'

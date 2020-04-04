@@ -17,6 +17,16 @@ body, html{
     align-items: center;
     flex-wrap: wrap;
     background: #f2f2f2;
+    flex-direction: row;
+}
+.container3 {
+    padding: 20px;
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+    flex-wrap: wrap;
+    background: #f2f2f2;
+    flex-direction: column;
 }
 
 .spinner-md{
@@ -26,3 +36,8 @@ body, html{
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-row:hover {
+    cursor: pointer;
+    background-color: lightgrey;
+  }

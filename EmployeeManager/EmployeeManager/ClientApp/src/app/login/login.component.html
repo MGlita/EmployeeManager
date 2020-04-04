@@ -1,31 +1,30 @@
 
-<div class="container2">
-    <div class="wrap-login">
-        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-            <span class="login-elem login-greet p">Welcome</span>
-            <span class="login-elem p-lg img-login"><img class="img-login" src="../../favicon.ico" alt=""></span>
-            <input class="form-control input" [ngClass]="{ 'is-invalid': submitted && f.login.errors }" type="email" formControlName="login" name="login" id="login" placeholder="Email" required>
-            <div *ngIf="submitted && f.login.errors" class="alert alert-danger">
-                <div *ngIf="f.login.errors.required">Email is required</div>
-                <div *ngIf="f.login.errors.email">Invalid email format</div>
-            </div>
-            <input class="form-control input" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" type="password" formControlName="password" name="pass" id="pass" placeholder="Password" required>
-            <div *ngIf="submitted && f.password.errors" class="alert alert-danger">
-                <div *ngIf="f.password.errors.required">Password is required</div>
-            </div>
-            <button [disabled]="loading" class="btn btn-primary btn-lg input" type="submit">
-                <span *ngIf="!loading">Login</span>
-                <span *ngIf="loading" >
-                    Loading...
-                    <span class="spinner-border spinner-md"></span>
-                </span>
-            </button>
-            
-            <div *ngIf="error" class="alert alert-danger">
-                {{error}}
-            </div>
-            <span class="login-elem">Don`t have an account? <a routerLink="/register">Sign Up</a></span>
-            
-        </form>
-    </div>
+<div class="wrap-login">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <span class="login-elem login-greet p">Welcome</span>
+        <span class="login-elem p-lg img-login"><img class="img-login" src="../../favicon.ico" alt=""></span>
+        <input class="form-control input" [ngClass]="{ 'is-invalid': submitted && f.login.errors }" type="email" formControlName="login" name="login" id="login" placeholder="Email" required>
+        <div *ngIf="submitted && f.login.errors" class="alert alert-danger">
+            <div *ngIf="f.login.errors.required">Email is required</div>
+            <div *ngIf="f.login.errors.email">Invalid email format</div>
+        </div>
+        <input class="form-control input" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" type="password" formControlName="password" name="pass" id="pass" placeholder="Password" required>
+        <div *ngIf="submitted && f.password.errors" class="alert alert-danger">
+            <div *ngIf="f.password.errors.required">Password is required</div>
+        </div>
+        <button [disabled]="loading" class="btn btn-primary btn-lg input" type="submit">
+            <span *ngIf="!loading">Login</span>
+            <span *ngIf="loading" >
+                Loading...
+                <span class="spinner-border spinner-md"></span>
+            </span>
+        </button>
+        
+        <div *ngIf="error" class="alert alert-danger">
+            {{error}}
+        </div>
+        <span class="login-elem">Don`t have an account? <a routerLink="/register">Sign Up</a></span>
+        
+    </form>
 </div>
+

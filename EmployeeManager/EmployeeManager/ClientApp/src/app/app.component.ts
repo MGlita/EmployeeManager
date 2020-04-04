@@ -1,3 +1,4 @@
+import { LoginService } from './login/login.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'ClientApp';
+  title = 'EmployeeManager';
+  constructor(private loginService: LoginService) {}
+  
+  logout(){
+    this.loginService.logout();
+  }
 }

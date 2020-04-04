@@ -1,16 +1,16 @@
 import { Component, ViewChild } from '@angular/core';
-import { EmployeeService } from './employee.service';
+import { EmployeeService } from '../employee.service';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
-import { Employee } from './employee';
+import { Employee } from '../employee';
 import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
-  selector: 'employees',
-  templateUrl: './employees.component.html',
-  styleUrls: ['./employee.component.scss'],
+  selector: 'employee-detail',
+  templateUrl: './employee-detail.component.html',
+  styleUrls: ['./employee-detail.component.scss'],
 })
-export class EmployeesComponent {
+export class EmployeeDetailComponent {
 
   displayedColumns: string[] = ['firstname', 'surname', 'gender', 'nationality', 'phoneNumber', 'birthDate', 'email', 'department'];
   dataSource = new MatTableDataSource<Employee>();
@@ -19,7 +19,7 @@ export class EmployeesComponent {
     'Marketing',
     'Customer Service',
     'IT',
-    'TopManagement',
+    'Top Management',
     'HR'
   ];
 
@@ -35,6 +35,9 @@ export class EmployeesComponent {
     this.dataSource.sort = this.sort;
   }
 
+  populateForm(emp: Employee){
+    console.log(emp);
+  }
   public getAllEmployees(){
     return this.employeeService.GetAllEmployees().toPromise().then(res=>this.dataSource.data=res);
   }

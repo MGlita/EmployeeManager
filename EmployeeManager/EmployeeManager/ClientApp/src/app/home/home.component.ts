@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { EmployeeService } from '../employees/employee.service';
 import { AuthService } from '../auth/auth.service';
 import { Router } from '@angular/router';
 import { faUserTie, faUserFriends, faTruckMoving } from '@fortawesome/free-solid-svg-icons';

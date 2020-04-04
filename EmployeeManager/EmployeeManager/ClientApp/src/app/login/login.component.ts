@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { EmployeeService } from '../employees/employee.service';
 import { LoginService } from './login.service';
 import { Login } from './login';
 import { Router } from '@angular/router';
@@ -42,7 +41,6 @@ export class LoginComponent implements OnInit {
       return;
     }
     this.loading = true;
-    console.log(this.f);
     let login = new Login(this.f.login.value,this.f.password.value);
 
     this.service.login(login).subscribe(
@@ -53,7 +51,6 @@ export class LoginComponent implements OnInit {
         if(err.status==401)this.error="Invalid email or password";
         else this.error="Error occurred";
         this.loading = false;
-        console.log(err.status);
       });
     
     }

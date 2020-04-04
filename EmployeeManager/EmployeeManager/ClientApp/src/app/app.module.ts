@@ -1,3 +1,4 @@
+import { EmployeeFormComponent } from './employee/employee-form/employee-form.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -5,14 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
-import { EmployeesComponent } from './employees/employees.component';
+import { EmployeeDetailComponent } from './employee/employee-detail/employee-detail.component';
 import { AuthGuardService } from './auth/auth-guard.service';
 import { AuthService } from './auth/auth.service';
 import { JwtModule } from '@auth0/angular-jwt';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoginService } from './login/login.service';
 import { CustomerService } from './customer/customer.service';
-import { EmployeeService } from './employees/employee.service';
+import { EmployeeService } from './employee/employee.service';
 import { AuthInterceptor } from './auth/AuthInterceptor';
 import { CustomerComponent } from './customer/customer.component';
 import { RoleGuardService } from './auth/role-guard.service';
@@ -23,13 +24,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { EmployeeComponent } from './employee/employee.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HomeComponent,
-    EmployeesComponent,
+    EmployeeDetailComponent,
+    EmployeeComponent,
+    EmployeeFormComponent,
     CustomerComponent,
     RegisterComponent
   ],

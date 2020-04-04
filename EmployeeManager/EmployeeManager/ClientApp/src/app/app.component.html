@@ -4,6 +4,12 @@
     <a routerLink="/home" routerLinkActive="active">Home</a>
     <a routerLink="/employees" routerLinkActive="active">Employees</a>
     <a routerLink="/customers" routerLinkActive="active">Customers</a> 
+    <a routerLink="/login" routerLinkActive="active" (click)="logout()">Logout</a> 
+
   </nav>
-  <router-outlet></router-outlet>
+  <div class="container2">
+    
+    <router-outlet></router-outlet>
+
+  </div>
 </div>
