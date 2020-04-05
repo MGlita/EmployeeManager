@@ -41,7 +41,7 @@ namespace Presentation.Controllers
         [HttpPut]
         public async Task<Unit> UpdateEmployee(EmployeeDto model)
         {
-            return await _mediator.Send(new UpdateEmployee { Employee = model);
+            return await _mediator.Send(new UpdateEmployee { Employee = model });
         }
 
         [HttpDelete("{id}")]

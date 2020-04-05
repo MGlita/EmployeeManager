@@ -32,15 +32,15 @@ namespace Presentation.Controllers
         }
 
         [HttpPost]
-        public async Task<Unit> CreateCustomer(CreateCustomer customer)
+        public async Task<Unit> CreateCustomer(CustomerDto model)
         {
-            return await _mediator.Send(customer);
+            return await _mediator.Send(new CreateCustomer {Customer = model });
         }
 
         [HttpPut]
-        public async Task<Unit> UpdateCustomer(UpdateCustomer customer)
+        public async Task<Unit> UpdateCustomer(CustomerDto model)
         {
-            return await _mediator.Send(customer);
+            return await _mediator.Send(new UpdateCustomer {Customer = model });
         }
 
         [HttpDelete("{id}")]

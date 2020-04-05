@@ -31,15 +31,15 @@ namespace Presentation.Controllers
         }
 
         [HttpPost]
-        public async Task<Unit> CreateVehicle(CreateVehicle vehicle)
+        public async Task<Unit> CreateVehicle(VehicleDto model)
         {
-            return await _mediator.Send(vehicle);
+            return await _mediator.Send(new CreateVehicle {Vehicle = model });
         }
 
         [HttpPut]
-        public async Task<Unit> UpdateVehicle(UpdateVehicle vehicle)
+        public async Task<Unit> UpdateVehicle(VehicleDto model)
         {
-            return await _mediator.Send(vehicle);
+            return await _mediator.Send(new UpdateVehicle {Vehicle = model });
         }
 
         [HttpDelete("{id}")]

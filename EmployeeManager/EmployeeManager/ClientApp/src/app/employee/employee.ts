@@ -5,7 +5,7 @@ export class Employee {
     gender: string;
     nationality: string;
     phoneNumber: string;
-    birthDate: Date = new Date(1999,12,12);
+    birthDate: Date;
     email: string;
     department: number;
     hiredDate: Date = new Date(Date.now());

@@ -1,25 +1,32 @@
-<div>
-    <button class="btn btn-primary" (click)="openForm()">
+<div class="center form">
+    <button class="btn btn-primary" [ngClass]="{'form-btn': isFormOpen }" (click)="openForm()">
         <span *ngIf="!isFormOpen">New employee</span>
         <span *ngIf="isFormOpen">Close form</span>
     </button>
-
-    <div class="wrap-login" *ngIf="isFormOpen">
+    
+    <div class="wrap-form" *ngIf="isFormOpen">
+        <span class="new-text">New Employee</span>
         <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
             <input class="form-control input" [ngClass]="{ 'is-invalid': submitted && f.firstname.errors }" type="text" formControlName="firstname" name="firstname" id="firstname" placeholder="First Name" required>
             <input class="form-control input" [ngClass]="{ 'is-invalid': submitted && f.surname.errors }" type="text" formControlName="surname" name="surname" id="surname" placeholder="Surname" required>
-            <input class="form-control input" [ngClass]="{ 'is-invalid': submitted && f.gender.errors }" type="text" formControlName="gender" name="gender" id="gender" placeholder="Gender" required>
+            <select class="form-control" [ngClass]="{ 'is-invalid': submitted && f.gender.errors }" formControlName="gender" name="gender" id="gender">
+                <option [ngValue]="null" disabled selected>Gender</option>
+                <option value="M">Male</option>
+                <option value="F">Female</option>
+            </select>
             <input class="form-control input" [ngClass]="{ 'is-invalid': submitted && f.nationality.errors }" type="text" formControlName="nationality" name="nationality" id="nationality" placeholder="Nationality" required>
             <input class="form-control input" [ngClass]="{ 'is-invalid': submitted && f.phoneNumber.errors }" type="text" formControlName="phoneNumber" name="phoneNumber" id="phoneNumber" placeholder="Phone Number" required>
             <input class="form-control input" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" type="email" formControlName="email" name="email" id="email" placeholder="Email" required>
-            <input class="form-control input" [ngClass]="{ 'is-invalid': submitted && f.birthDate.errors }" type="text" formControlName="birthDate" name="birthDate" id="birthDate" placeholder="Birth Date" required>
+            <input class="form-control input" [ngClass]="{ 'is-invalid': submitted && f.birthDate.errors }" type="text" onfocus="(this.type='date')" formControlName="birthDate" name="birthDate" id="birthDate" placeholder="BirthDate" required>
             <select class="form-control" [ngClass]="{ 'is-invalid': submitted && f.department.errors }" formControlName="department" name="department" id="department">
-                <option [ngValue]="null">Department</option>
+                <option [ngValue]="null" disabled>Department</option>
                 <option *ngFor="let dep of departments" [value]="dep">{{dep}}</option>
             </select>
-            <button class="btn btn-primary">
+            <button type="submit" class="btn btn-primary">
                 <span>Add Employee</span>
             </button>
         </form>
     </div>
 </div>
+
+

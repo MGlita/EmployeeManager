@@ -1,7 +1,52 @@
-.wrap-login{
-    width: 400px;
+.form{
+    margin-bottom: 50px;
+}
+.wrap-form{
+    width: 700px;
     background: #fff;
-    padding: 70px;
+    padding-top: 30px;
+    padding-bottom: 30px;;
+    padding-left: 150px;
+    padding-right: 150px;
     border-radius: 10px;
     box-shadow: 0 5px 10px 0 rgba(0, 0,0,.1);
+}
+.new-text{
+    margin-bottom: 50px;
+    font-size:40px;
+    font-weight: 400;
+    display: flex;
+    justify-content: center;
+}
+@media(max-width:576px){
+    .wrap-form{
+        width: 300px;
+        padding-right: 0px;
+        padding: 50px
+    }
+    .new-text{
+        font-size: 30px;
+    }
+}
+.center{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+.form-btn{
+    margin-bottom: 20px;
+}
+.input{
+    display: block;
+    width: 100%;
+    margin-bottom: 40px;
+
+}
+button[type=submit]{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+select{
+    margin-bottom: 40px;
 }

@@ -29,6 +29,12 @@ body, html{
     flex-direction: column;
 }
 
+.disp-col{
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+}
+
 .spinner-md{
     width: 25px;
     height: 25px;

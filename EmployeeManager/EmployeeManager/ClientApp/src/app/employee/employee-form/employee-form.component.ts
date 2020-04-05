@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { EmployeeService } from '../employee.service';
 import { Employee } from '../employee';
@@ -6,7 +6,8 @@ import { Employee } from '../employee';
 @Component({
   selector: 'employee-form',
   templateUrl: './employee-form.component.html',
-  styleUrls: ['./employee-form.component.scss']
+  styleUrls: ['./employee-form.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class EmployeeFormComponent implements OnInit {
   employeeForm: FormGroup;
@@ -29,12 +30,12 @@ export class EmployeeFormComponent implements OnInit {
   ngOnInit(): void {
 
     this.employeeForm = this.formBuilder.group({
-      firstname: ['', [Validators.required]],
-      surname: ['', Validators.required],
+      firstname: ['', [Validators.required,Validators.maxLength(50)]],
+      surname: ['', [Validators.required,Validators.maxLength(50)]],
       gender: ['', Validators.required],
-      nationality: ['', Validators.required],
-      phoneNumber: ['', Validators.required],
-      birthDate: ['', Validators.required],
+      nationality: ['', [Validators.required, Validators.maxLength(50)]],
+      phoneNumber: ['', [Validators.required,Validators.maxLength(15)]],
+      birthDate: ['', [Validators.required]],
       department: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
 
@@ -47,6 +48,7 @@ export class EmployeeFormComponent implements OnInit {
 
   openForm(){
     this.f.department.setValue(null);
+    this.f.gender.setValue(null);
     this.isFormOpen=!this.isFormOpen;
   }
 
@@ -63,8 +65,8 @@ export class EmployeeFormComponent implements OnInit {
     this.model.gender = this.f.gender.value;
     this.model.nationality = this.f.nationality.value;
     this.model.phoneNumber = this.f.phoneNumber.value;
-    //this.model.birthDate = this.f.birthDate.value;
-    this.model.department = 1;//this.f.department.value;
+    this.model.birthDate = new Date(this.f.birthDate.value);
+    this.model.department = this.f.department.value;
     this.model.email = this.f.email.value;
     console.log(this.model);
     this.employeeService.CreateEmployee(this.model).subscribe(res=>{console.log(res)}
