@@ -1,8 +1,33 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, ValidatorFn, ValidationErrors } from '@angular/forms';
 import { EmployeeService } from '../employee.service';
 import { Employee } from '../employee';
+import * as moment from 'moment';
 
+export function minimumAge(age:number): ValidatorFn {
+  return (fg: FormGroup): ValidationErrors => {
+      let result: ValidationErrors = null;
+      if (fg.get('birthDate').valid) {
+        // carefull, moment months range is from 0 to 11
+        const value = fg.get('birthDate').value;
+        const date = moment(value)
+        if (date.isValid()) {
+          // https://momentjs.com/docs/#/displaying/difference/
+          const now = moment().startOf('day');
+          const yearsDiff = date.diff(now, 'years');
+          if (yearsDiff > -age) {
+            result = {
+              'minimumAge': {
+                'requiredAge': age,
+                'actualAge': -yearsDiff
+              }
+            };
+          }
+        }
+      }
+      return result;
+    };
+}
 @Component({
   selector: 'employee-form',
   templateUrl: './employee-form.component.html',
@@ -40,7 +65,7 @@ export class EmployeeFormComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
 
   });
-  
+  this.employeeForm.setValidators(minimumAge(18));
   }
   model = new Employee();
 
@@ -53,7 +78,7 @@ export class EmployeeFormComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log(this.f);
+    console.log(this.employeeForm.errors);
     this.submitted=true;
     this.error = '';
     if (this.employeeForm.invalid) {
