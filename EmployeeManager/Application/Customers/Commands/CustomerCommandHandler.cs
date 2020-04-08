@@ -21,19 +21,19 @@ namespace Application.Customers.Commands
 
         public async Task<Unit> Handle(CreateCustomer request, CancellationToken cancellationToken)
         {
-            var company = await _context.Company.FindAsync(request.Customer.CompanyId);
+            var company = await _context.Company.FindAsync(request.CompanyId);
 
-            if (company == null) throw new Exception($"Company with id: {request.Customer.CompanyId} not found");
+            if (company == null) throw new Exception($"Company with id: {request.CompanyId} not found");
 
             var entity = new Customer
             {
-                FirstName = request.Customer.FirstName,
-                Surname = request.Customer.Surname,
-                Email = request.Customer.Email,
-                Gender = request.Customer.Gender,
-                JobTitle = request.Customer.JobTitle,
-                Nationality = request.Customer.Nationality,
-                PhoneNumber = request.Customer.PhoneNumber,
+                FirstName = request.FirstName,
+                Surname = request.Surname,
+                Email = request.Email,
+                Gender = request.Gender,
+                JobTitle = request.JobTitle,
+                Nationality = request.Nationality,
+                PhoneNumber = request.PhoneNumber,
                 Company = company
             };
 
@@ -46,18 +46,18 @@ namespace Application.Customers.Commands
 
         public async Task<Unit> Handle(UpdateCustomer request, CancellationToken cancellationToken)
         {
-            var customer = await _context.Customer.FindAsync(request.Customer.Id);
+            var customer = await _context.Customer.FindAsync(request.Id);
 
-            if (customer == null) throw new Exception($"Customer with id: {request.Customer.Id} not found");
+            if (customer == null) throw new Exception($"Customer with id: {request.Id} not found");
 
-            customer.FirstName = request.Customer.FirstName;
-            customer.Surname = request.Customer.Surname;
-            customer.Email = request.Customer.Email;
-            customer.Gender = request.Customer.Gender;
-            customer.JobTitle = request.Customer.JobTitle;
-            customer.Nationality = request.Customer.Nationality;
-            customer.PhoneNumber = request.Customer.PhoneNumber;
-            customer.CompanyId = request.Customer.CompanyId;
+            customer.FirstName = request.FirstName;
+            customer.Surname = request.Surname;
+            customer.Email = request.Email;
+            customer.Gender = request.Gender;
+            customer.JobTitle = request.JobTitle;
+            customer.Nationality = request.Nationality;
+            customer.PhoneNumber = request.PhoneNumber;
+            customer.CompanyId = request.CompanyId;
 
             _context.Customer.Update(customer);
 

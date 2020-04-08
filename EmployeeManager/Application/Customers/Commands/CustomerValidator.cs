@@ -7,14 +7,14 @@ namespace Application.Customers.Commands
     {
         public CustomerValidator()
         {
-            RuleFor(x => x.Customer.FirstName).NotNull().MaximumLength(100);
-            RuleFor(x => x.Customer.Surname).NotNull().MaximumLength(100);
-            RuleFor(x => x.Customer.Gender).NotNull().Length(1).Matches(@"[M|F]{1}");
-            RuleFor(x => x.Customer.Nationality).NotNull().MaximumLength(50);
-            RuleFor(x => x.Customer.PhoneNumber).NotNull().MaximumLength(15);
-            RuleFor(x => x.Customer.Email).NotNull().MaximumLength(50).EmailAddress();
-            RuleFor(x => x.Customer.JobTitle).NotNull().MaximumLength(50);
-            RuleFor(x => x.Customer.CompanyId).NotNull();
+            RuleFor(x => x.FirstName).NotNull().MaximumLength(100);
+            RuleFor(x => x.Surname).NotNull().MaximumLength(100);
+            RuleFor(x => x.Gender).NotNull().Length(1).Matches(@"[M|F]{1}");
+            RuleFor(x => x.Nationality).NotNull().MaximumLength(50);
+            RuleFor(x => x.PhoneNumber).NotNull().MaximumLength(15);
+            RuleFor(x => x.Email).NotNull().MaximumLength(50).EmailAddress();
+            RuleFor(x => x.JobTitle).NotNull().MaximumLength(50);
+            RuleFor(x => x.CompanyId).NotNull();
         }
     }
 }

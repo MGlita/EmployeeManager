@@ -7,12 +7,12 @@ namespace Application.Companies.Commands
     {
         public CompanyUpdateValidator()
         {
-            RuleFor(x => x.Company.Name).NotNull().MaximumLength(100);
-            RuleFor(x => x.Company.Email).NotNull().MaximumLength(50).EmailAddress();
-            RuleFor(x => x.Company.City).NotNull().Length(50);
-            RuleFor(x => x.Company.Street).NotNull().Length(50);
-            RuleFor(x => x.Company.StreetNo).NotNull().Length(10);
-            RuleFor(x => x.Company.ZipCode).NotNull().Length(6).Matches(@"\d{2}\-\d{3}");
+            RuleFor(x => x.Name).NotNull().MaximumLength(100);
+            RuleFor(x => x.Email).NotNull().MaximumLength(50).EmailAddress();
+            RuleFor(x => x.City).NotNull().Length(50);
+            RuleFor(x => x.Street).NotNull().Length(50);
+            RuleFor(x => x.StreetNo).NotNull().Length(10);
+            RuleFor(x => x.ZipCode).NotNull().Length(6).Matches(@"\d{2}\-\d{3}");
         }
     }
 }

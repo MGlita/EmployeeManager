@@ -22,12 +22,12 @@ namespace Application.Companies.Commands
         {
             var entity = new Company
             {
-                Name = request.Company.Name,
-                Email = request.Company.Email,
-                City = request.Company.City,
-                Street = request.Company.Street,
-                StreetNo = request.Company.StreetNo,
-                ZipCode = request.Company.ZipCode
+                Name = request.Name,
+                Email = request.Email,
+                City = request.City,
+                Street = request.Street,
+                StreetNo = request.StreetNo,
+                ZipCode = request.ZipCode
             };
 
             _context.Company.Add(entity);
@@ -39,16 +39,16 @@ namespace Application.Companies.Commands
 
         public async Task<Unit> Handle(UpdateCompany request, CancellationToken cancellationToken)
         {
-            var company = await _context.Company.FindAsync(request.Company.Id);
+            var company = await _context.Company.FindAsync(request.Id);
 
-            if (company == null) throw new Exception($"Company with id: {request.Company.Id} not found");
+            if (company == null) throw new Exception($"Company with id: {request.Id} not found");
 
-            company.Name = request.Company.Name;
-            company.Email = request.Company.Email;
-            company.City = request.Company.City;
-            company.Street = request.Company.Street;
-            company.StreetNo = request.Company.StreetNo;
-            company.ZipCode = request.Company.ZipCode;
+            company.Name = request.Name;
+            company.Email = request.Email;
+            company.City = request.City;
+            company.Street = request.Street;
+            company.StreetNo = request.StreetNo;
+            company.ZipCode = request.ZipCode;
 
             _context.Company.Update(company);
 

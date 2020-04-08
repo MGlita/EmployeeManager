@@ -22,21 +22,21 @@ namespace Application.Employees.Commands
         {           
             var entity = new Employee
             {
-                BirthDate = request.Employee.BirthDate,
-                Department = request.Employee.Department,
-                Email = request.Employee.Email,
-                HiredDate = request.Employee.HiredDate,
-                JobTitle = request.Employee.JobTitle,
-                FirstName = request.Employee.Firstname,
-                Salary = request.Employee.Salary,
-                Surname = request.Employee.Surname,
-                City = request.Employee.City,
-                Gender = request.Employee.Gender,
-                Nationality = request.Employee.Nationality,
-                PhoneNumber = request.Employee.PhoneNumber,
-                Street = request.Employee.Street,
-                StreetNo = request.Employee.StreetNo,
-                ZipCode = request.Employee.ZipCode
+                BirthDate = request.BirthDate,
+                Department = request.Department,
+                Email = request.Email,
+                HiredDate = request.HiredDate,
+                JobTitle = request.JobTitle,
+                FirstName = request.Firstname,
+                Salary = request.Salary,
+                Surname = request.Surname,
+                City = request.City,
+                Gender = request.Gender,
+                Nationality = request.Nationality,
+                PhoneNumber = request.PhoneNumber,
+                Street = request.Street,
+                StreetNo = request.StreetNo,
+                ZipCode = request.ZipCode
             };
 
             _context.Employees.Add(entity);
@@ -48,25 +48,25 @@ namespace Application.Employees.Commands
 
         public async Task<Unit> Handle(UpdateEmployee request, CancellationToken cancellationToken)
         {
-            var employee = await _context.Employees.SingleOrDefaultAsync(x=>x.Id==request.Employee.Id);
+            var employee = await _context.Employees.SingleOrDefaultAsync(x=>x.Id==request.Id);
 
-            if (employee == null) throw new Exception("Employee with id: " + request.Employee.Id + " not found");
+            if (employee == null) throw new Exception("Employee with id: " + request.Id + " not found");
 
-            employee.BirthDate = request.Employee.BirthDate;
-            employee.Department = request.Employee.Department;
-            employee.Email = request.Employee.Email;
-            employee.HiredDate = request.Employee.HiredDate;
-            employee.JobTitle = request.Employee.JobTitle;
-            employee.FirstName = request.Employee.Firstname;
-            employee.Salary = request.Employee.Salary;
-            employee.Surname = request.Employee.Surname;
-            employee.City = request.Employee.City;
-            employee.Gender = request.Employee.Gender;
-            employee.Nationality = request.Employee.Nationality;
-            employee.PhoneNumber = request.Employee.PhoneNumber;
-            employee.Street = request.Employee.Street;
-            employee.StreetNo = request.Employee.StreetNo;
-            employee.ZipCode = request.Employee.ZipCode;
+            employee.BirthDate = request.BirthDate;
+            employee.Department = request.Department;
+            employee.Email = request.Email;
+            employee.HiredDate = request.HiredDate;
+            employee.JobTitle = request.JobTitle;
+            employee.FirstName = request.Firstname;
+            employee.Salary = request.Salary;
+            employee.Surname = request.Surname;
+            employee.City = request.City;
+            employee.Gender = request.Gender;
+            employee.Nationality = request.Nationality;
+            employee.PhoneNumber = request.PhoneNumber;
+            employee.Street = request.Street;
+            employee.StreetNo = request.StreetNo;
+            employee.ZipCode = request.ZipCode;
 
             _context.Employees.Update(employee);
 

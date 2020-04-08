@@ -23,19 +23,19 @@ namespace Application.Vehicles.Commands
         {
             var entity = new Vehicle
             {
-                VehicleType = request.Vehicle.VehicleType,
-                Make = request.Vehicle.Make,
-                Model = request.Vehicle.Model,
-                RegistrationNumber = request.Vehicle.RegistrationNumber,
-                ProductionYear = request.Vehicle.ProductionYear,
-                TechnicalInspectionStart = request.Vehicle.TechnicalInspectionStart,
-                TechnicalInspectionEnd = request.Vehicle.TechnicalInspectionEnd,
-                TachographStart = request.Vehicle.TachographStart,
-                TachographEnd = request.Vehicle.TachographEnd,
-                InsuranceOCStart = request.Vehicle.InsuranceOCStart,
-                InsuranceOCEnd = request.Vehicle.InsuranceOCEnd,
-                InsuranceACStart = request.Vehicle.InsuranceACStart,
-                InsuranceACEnd = request.Vehicle.InsuranceACEnd
+                VehicleType = request.VehicleType,
+                Make = request.Make,
+                Model = request.Model,
+                RegistrationNumber = request.RegistrationNumber,
+                ProductionYear = request.ProductionYear,
+                TechnicalInspectionStart = request.TechnicalInspectionStart,
+                TechnicalInspectionEnd = request.TechnicalInspectionEnd,
+                TachographStart = request.TachographStart,
+                TachographEnd = request.TachographEnd,
+                InsuranceOCStart = request.InsuranceOCStart,
+                InsuranceOCEnd = request.InsuranceOCEnd,
+                InsuranceACStart = request.InsuranceACStart,
+                InsuranceACEnd = request.InsuranceACEnd
             };
 
             _context.Vehicle.Add(entity);
@@ -45,23 +45,23 @@ namespace Application.Vehicles.Commands
 
         public async Task<Unit> Handle(UpdateVehicle request, CancellationToken cancellationToken)
         {
-            var vehicle = await _context.Vehicle.FindAsync(request.Vehicle.Id);
+            var vehicle = await _context.Vehicle.FindAsync(request.Id);
 
-            if (vehicle == null) throw new Exception($"Vehicle with id: {request.Vehicle.Id} not found");
+            if (vehicle == null) throw new Exception($"Vehicle with id: {request.Id} not found");
 
-            vehicle.VehicleType = request.Vehicle.VehicleType;
-            vehicle.Make = request.Vehicle.Make;
-            vehicle.Model = request.Vehicle.Model;
-            vehicle.RegistrationNumber = request.Vehicle.RegistrationNumber;
-            vehicle.ProductionYear = request.Vehicle.ProductionYear;
-            vehicle.TechnicalInspectionStart = request.Vehicle.TechnicalInspectionStart;
-            vehicle.TechnicalInspectionEnd = request.Vehicle.TechnicalInspectionEnd;
-            vehicle.TachographStart = request.Vehicle.TachographStart;
-            vehicle.TachographEnd = request.Vehicle.TachographEnd;
-            vehicle.InsuranceOCStart = request.Vehicle.InsuranceOCStart;
-            vehicle.InsuranceOCEnd = request.Vehicle.InsuranceOCEnd;
-            vehicle.InsuranceACStart = request.Vehicle.InsuranceACStart;
-            vehicle.InsuranceACEnd = request.Vehicle.InsuranceACEnd;
+            vehicle.VehicleType = request.VehicleType;
+            vehicle.Make = request.Make;
+            vehicle.Model = request.Model;
+            vehicle.RegistrationNumber = request.RegistrationNumber;
+            vehicle.ProductionYear = request.ProductionYear;
+            vehicle.TechnicalInspectionStart = request.TechnicalInspectionStart;
+            vehicle.TechnicalInspectionEnd = request.TechnicalInspectionEnd;
+            vehicle.TachographStart = request.TachographStart;
+            vehicle.TachographEnd = request.TachographEnd;
+            vehicle.InsuranceOCStart = request.InsuranceOCStart;
+            vehicle.InsuranceOCEnd = request.InsuranceOCEnd;
+            vehicle.InsuranceACStart = request.InsuranceACStart;
+            vehicle.InsuranceACEnd = request.InsuranceACEnd;
 
             _context.Vehicle.Update(vehicle);
             await _context.SaveChangesAsync(cancellationToken);
