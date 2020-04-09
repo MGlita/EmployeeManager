@@ -29,10 +29,11 @@ mat-paginator{
   
 }
 mat-paginator{
-min-width: 800px;
+min-width: 900px;
 margin:auto;
 }
 mat-cell{
-    min-width: 100px;
+	min-width: 100px;
+	max-width: 100px;
     word-wrap: normal;
 }

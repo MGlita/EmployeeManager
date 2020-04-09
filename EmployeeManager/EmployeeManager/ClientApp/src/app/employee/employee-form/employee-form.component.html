@@ -1,23 +1,23 @@
 <div class="center form">
-    <button class="btn btn-primary" [ngClass]="{'form-btn': isFormOpen }" (click)="openForm()">
-        <span *ngIf="!isFormOpen">New employee</span>
-        <span *ngIf="isFormOpen">Close form</span>
+    <button class="btn btn-primary" [ngClass]="{'form-btn': employeeService.isFormOpen }" (click)="openForm()">
+        <span *ngIf="!employeeService.isFormOpen">New employee</span>
+        <span *ngIf="employeeService.isFormOpen">Close form</span>
     </button>
     
-    <div class="wrap-form" *ngIf="isFormOpen">
+    <div class="wrap-form" *ngIf="employeeService.isFormOpen">
         <span class="new-text">New Employee</span>
         <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
-            <input class="form-control input" [ngClass]="{ 'is-invalid': submitted && f.firstname.errors }" type="text" formControlName="firstname" name="firstname" id="firstname" placeholder="First Name" required>
+            <input class="form-control input" [ngClass]="{ 'is-invalid': submitted && f.firstname.errors }" [(ngModel)]="employeeService.formData.firstname" type="text" formControlName="firstname" name="firstname" id="firstname" placeholder="First Name" required>
             <div *ngIf="submitted && f.firstname.errors" class="alert alert-danger">
                 <div *ngIf="f.firstname.errors.required">First Name is required</div>
                 <div *ngIf="f.firstname.errors.maxlength">Max value is 50 charcters</div>
             </div>
-            <input class="form-control input" [ngClass]="{ 'is-invalid': submitted && f.surname.errors }" type="text" formControlName="surname" name="surname" id="surname" placeholder="Surname" required>
+            <input class="form-control input" [ngClass]="{ 'is-invalid': submitted && f.surname.errors }" [(ngModel)]="employeeService.formData.surname" type="text" formControlName="surname" name="surname" id="surname" placeholder="Surname" required>
             <div *ngIf="submitted && f.surname.errors" class="alert alert-danger">
                 <div *ngIf="f.surname.errors.required">Surname is required</div>
                 <div *ngIf="f.surname.errors.maxlength">Max value is 50 charcters</div>
             </div>
-            <select class="form-control" [ngClass]="{ 'is-invalid': submitted && f.gender.errors }" formControlName="gender" name="gender" id="gender">
+            <select class="form-control" [ngClass]="{ 'is-invalid': submitted && f.gender.errors }" [(ngModel)]="employeeService.formData.gender" formControlName="gender" name="gender" id="gender">
                 <option [ngValue]="null" disabled selected>Gender</option>
                 <option value="M">Male</option>
                 <option value="F">Female</option>
@@ -25,30 +25,30 @@
             <div *ngIf="submitted && f.gender.errors" class="alert alert-danger">
                 <div *ngIf="f.gender.errors.required">Choose Gender</div>
             </div>
-            <input class="form-control input" [ngClass]="{ 'is-invalid': submitted && f.nationality.errors }" type="text" formControlName="nationality" name="nationality" id="nationality" placeholder="Nationality" required>
+            <input class="form-control input" [ngClass]="{ 'is-invalid': submitted && f.nationality.errors }" [(ngModel)]="employeeService.formData.nationality" type="text" formControlName="nationality" name="nationality" id="nationality" placeholder="Nationality" required>
             <div *ngIf="submitted && f.nationality.errors" class="alert alert-danger">
                 <div *ngIf="f.nationality.errors.required">Nationality is required</div>
                 <div *ngIf="f.nationality.errors.maxlength">Max value is 50 charcters</div>
             </div>
-            <input class="form-control input" [ngClass]="{ 'is-invalid': submitted && f.phoneNumber.errors }" type="text" formControlName="phoneNumber" name="phoneNumber" id="phoneNumber" placeholder="Phone Number" required>
+            <input class="form-control input" [ngClass]="{ 'is-invalid': submitted && f.phoneNumber.errors }" [(ngModel)]="employeeService.formData.phoneNumber" type="text" formControlName="phoneNumber" name="phoneNumber" id="phoneNumber" placeholder="Phone Number" required>
             <div *ngIf="submitted && f.phoneNumber.errors" class="alert alert-danger">
                 <div *ngIf="f.phoneNumber.errors.required">Phone number is required</div>
                 <div *ngIf="f.phoneNumber.errors.maxlength">Max value is 15 charcters</div>
             </div>
-            <input class="form-control input" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" type="email" formControlName="email" name="email" id="email" placeholder="Email" required>
+            <input class="form-control input" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" [(ngModel)]="employeeService.formData.email" type="email" formControlName="email" name="email" id="email" placeholder="Email" required>
             <div *ngIf="submitted && f.email.errors" class="alert alert-danger">
                 <div *ngIf="f.email.errors.required">Email is required</div>
                 <div *ngIf="f.email.errors.email">Invalid email format</div>
             </div>
-            <input class="form-control input" [ngClass]="{ 'is-invalid': submitted && f.birthDate.errors }" type="text" onfocus="(this.type='date')" formControlName="birthDate" name="birthDate" id="birthDate" placeholder="BirthDate" required>
+            <input class="form-control input" [ngClass]="{ 'is-invalid': submitted && f.birthDate.errors }" [(ngModel)]="employeeService.formData.birthDate" type="text" onfocus="(this.type='date')" formControlName="birthDate" name="birthDate" id="birthDate" placeholder="BirthDate" required>
             <div *ngIf="submitted && f.birthDate.errors" class="alert alert-danger">
                 <div *ngIf="f.birthDate.errors.required">BirthDate is required</div>
             </div>
             <div *ngIf="employeeForm.errors" class="alert alert-danger">
                 <div *ngIf="employeeForm.errors.minimumAge">Minimum age is 18</div>
             </div>
-            <select class="form-control" [ngClass]="{ 'is-invalid': submitted && f.department.errors }" formControlName="department" name="department" id="department">
-                <option [ngValue]="null" disabled>Department</option>
+            <select class="form-control" [ngClass]="{ 'is-invalid': submitted && f.department.errors }" [(ngModel)]="employeeService.formData.department===null?null:departments[employeeService.formData.department]" formControlName="department" name="department" id="department">
+                <option [ngValue]="null" disabled selected>Department</option>
                 <option *ngFor="let dep of departments" [value]="dep">{{dep}}</option>
             </select>
             <div *ngIf="submitted && f.department.errors" class="alert alert-danger">
@@ -56,6 +56,9 @@
             </div>
             <button type="submit" class="btn btn-primary">
                 <span>Add Employee</span>
+            </button>
+            <button type="button" (click)="resetForm()" class="btn btn-primary margin-auto">
+                <span>Clear</span>
             </button>
         </form>
     </div>

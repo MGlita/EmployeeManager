@@ -1,8 +1,8 @@
+<employee-form (change)="initTable()"></employee-form>
 <div class="data ">
 
     <mat-table [dataSource]="dataSource" matSort class="table mat-table-hover">
     
-        <!-- Name Column -->
         <ng-container matColumnDef="firstname">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
         <mat-cell (click)="populateForm(element)" *matCellDef="let element"> {{element.firstname}} </mat-cell>
@@ -12,7 +12,7 @@
         <mat-header-cell *matHeaderCellDef mat-sort-header> Surname </mat-header-cell>
         <mat-cell (click)="populateForm(element)" *matCellDef="let element"> {{element.surname}} </mat-cell>
         </ng-container>
-        <!-- Weight Column -->
+        
         <ng-container matColumnDef="gender">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Gender </mat-header-cell>
         <mat-cell (click)="populateForm(element)" *matCellDef="let element"> {{element.gender}} </mat-cell>
@@ -41,6 +41,13 @@
         <ng-container matColumnDef="department">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Department </mat-header-cell>
         <mat-cell (click)="populateForm(element)" *matCellDef="let element"> {{department[element.department]}} </mat-cell>
+        </ng-container>  
+
+        <ng-container matColumnDef="delete">
+            <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+                <button class="btn btn-danger" (click)="delete(element)" type="button">Delete</button>
+            </mat-cell>
         </ng-container>  
 
         <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>

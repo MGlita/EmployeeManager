@@ -7,11 +7,14 @@ import { Employee } from './employee';
 })
 export class EmployeeService {
   private apiUrl: string = "https://localhost:44328/api/Employee";
+  public formData:  Employee
+  public employeeList: Employee[];
+  public isFormOpen: Boolean = false;
 
   constructor(private httpClient: HttpClient) { }
 
   public GetAllEmployees(){
-    return this.httpClient.get<Employee[]>(this.apiUrl);
+    return this.httpClient.get(this.apiUrl);//.toPromise().then(res=>this.employeeList=res as Employee[]);
   }
   public CreateEmployee(employee: Employee){
     return this.httpClient.post(this.apiUrl,employee);
@@ -19,7 +22,7 @@ export class EmployeeService {
   public UpdateEmployee(employee: Employee){
     return this.httpClient.put(this.apiUrl,employee);
   }
-  public DeleteEmployee(id: string){
+  public DeleteEmployee(id: number){
     return this.httpClient.delete(this.apiUrl+"/"+id);
   }
 }
