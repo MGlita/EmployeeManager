@@ -25,6 +25,9 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { EmployeeComponent } from './employee/employee.component';
+import { VehicleComponent } from './vehicle/vehicle.component';
+import { VehicleDetailComponent } from './vehicle/vehicle-detail/vehicle-detail.component';
+import { VehicleFormComponent } from './vehicle/vehicle-form/vehicle-form.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,10 @@ import { EmployeeComponent } from './employee/employee.component';
     EmployeeComponent,
     EmployeeFormComponent,
     CustomerComponent,
-    RegisterComponent
+    RegisterComponent,
+    VehicleComponent,
+    VehicleDetailComponent,
+    VehicleFormComponent
   ],
   imports: [
     BrowserModule,

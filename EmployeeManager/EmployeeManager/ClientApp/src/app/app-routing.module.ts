@@ -11,6 +11,7 @@ import { LoginComponent } from './login/login.component';
 import { CustomerComponent } from './customer/customer.component';
 import { RegisterComponent } from './register/register.component';
 import { EmployeeComponent } from './employee/employee.component';
+import { VehicleComponent } from './vehicle/vehicle.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent,
@@ -31,6 +32,11 @@ const routes: Routes = [
     // data: { 
     //   expectedRole: 'Sales'
     // }  
+  },
+  {
+    path: 'vehicle',
+    component: VehicleComponent,
+    canActivate: [AuthGuard]
   },
   { path: 'login', component: LoginComponent},
   { path: 'register', component: RegisterComponent},

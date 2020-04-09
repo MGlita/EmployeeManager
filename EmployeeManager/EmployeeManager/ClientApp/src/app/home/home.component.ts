@@ -26,7 +26,7 @@ constructor(
   public onEmployees(){
     this.router.navigate(["employees"]);
   }
-  public onTrucks(){
-    this.router.navigate(["trucks"]);
+  public onVehicles(){
+    this.router.navigate(["vehicle"]);
   }
 }

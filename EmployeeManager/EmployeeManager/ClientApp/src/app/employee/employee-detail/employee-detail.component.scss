@@ -20,20 +20,20 @@ mat-paginator{
 		max-width: 100%;
 		overflow: auto;
 		margin-bottom: 10px;
-		display: table;
 		border-collapse: collapse;
         margin: auto;
-
+		min-width: 900px;
 		background-color: #fff;
 	}
   
 }
 mat-paginator{
-min-width: 900px;
-margin:auto;
+	width: 60vw;
+	min-width: 900px;
+	margin:auto;
 }
-mat-cell{
+mat-cell, mat-header-cell{
 	min-width: 100px;
-	max-width: 100px;
+	//max-width: 100px;
     word-wrap: normal;
 }
