@@ -1,1 +1,48 @@
-<p>vehicle-detail works!</p>
+<vehicle-form (change)="initTable()"></vehicle-form>
+<div class="data ">
+
+    <mat-table [dataSource]="dataSource" matSort class="table mat-table-hover">
+    
+        <ng-container matColumnDef="vehicleType">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Vehicle Type </mat-header-cell>
+        <mat-cell (click)="populateForm(element)" *matCellDef="let element"> {{vehicleType[element.vehicleType]}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="make">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Make </mat-header-cell>
+        <mat-cell (click)="populateForm(element)" *matCellDef="let element"> {{element.make}} </mat-cell>
+        </ng-container>
+        
+        <ng-container matColumnDef="model">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Model </mat-header-cell>
+        <mat-cell (click)="populateForm(element)" *matCellDef="let element"> {{element.model}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="registrationNumber">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Registration Number </mat-header-cell>
+        <mat-cell (click)="populateForm(element)" *matCellDef="let element"> {{element.registrationNumber}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="productionYear">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Production Year </mat-header-cell>
+        <mat-cell (click)="populateForm(element)" *matCellDef="let element"> {{element.productionYear}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="technicalInsp">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Techical inspection expiry </mat-header-cell>
+        <mat-cell (click)="populateForm(element)" *matCellDef="let element"> {{daysToEnd(element.technicalInspectionEnd)}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="delete">
+            <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+                <button class="btn btn-danger" (click)="delete(element)" type="button">Delete</button>
+            </mat-cell>
+        </ng-container>  
+
+        <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>
+

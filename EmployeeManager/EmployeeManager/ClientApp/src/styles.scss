@@ -47,3 +47,42 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     cursor: pointer;
     background-color: lightgrey;
   }
+
+  .block{
+    flex-direction: column;
+}
+
+.data {
+
+	display: block;
+	width: 95vw;
+	overflow: auto;
+
+	.table {
+		width: 60vw;
+		max-width: 100%;
+		overflow: auto;
+		margin-bottom: 10px;
+		border-collapse: collapse;
+        margin: auto;
+		min-width: 900px;
+		background-color: #fff;
+	}
+  
+}
+mat-paginator{
+	width: 60vw;
+	min-width: 900px;
+	margin:auto;
+}
+mat-cell, mat-header-cell{
+	min-width: 100px;
+	//max-width: 100px;
+    word-wrap: normal;
+}
+.welcome-txt{
+    font-size: 50px;
+    font-weight: 400;
+    margin-bottom: 100px;
+    margin-top: 20px;
+}

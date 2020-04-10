@@ -1,1 +1,56 @@
-<p>vehicle-form works!</p>
+<div class="center form">
+    <button class="btn btn-primary" [ngClass]="{'form-btn': vehicleService.isFormOpen }" (click)="openForm()">
+        <span *ngIf="!vehicleService.isFormOpen">New Vehicle</span>
+        <span *ngIf="vehicleService.isFormOpen">Close form</span>
+    </button>
+    
+    <div class="wrap-form" *ngIf="vehicleService.isFormOpen">
+        <span class="new-text">New Vehicle</span>
+        <form [formGroup]="vehicleForm" (ngSubmit)="onSubmit()">
+
+            <select class="form-control" [ngClass]="{ 'is-invalid': submitted && f.vehicleType.errors }" [(ngModel)]="vehicleService.formData.vehicleType===null?null:vehicles[vehicleService.formData.vehicleType]" formControlName="vehicleType" name="vehicleType" id="vehicleType">
+                <option [ngValue]="null" disabled selected>Vehicle type</option>
+                <option *ngFor="let veh of vehicles" [value]="veh">{{veh}}</option>
+            </select>
+            <div *ngIf="submitted && f.vehicleType.errors" class="alert alert-danger">
+                <div *ngIf="f.vehicleType.errors.required">Choose vehicle type</div>
+            </div>
+
+            <input class="form-control input" [ngClass]="{ 'is-invalid': submitted && f.make.errors }" [(ngModel)]="vehicleService.formData.make" type="text" formControlName="make" name="make" id="make" placeholder="Make" required>
+            <div *ngIf="submitted && f.make.errors" class="alert alert-danger">
+                <div *ngIf="f.make.errors.required">Make is required</div>
+                <div *ngIf="f.make.errors.maxlength">Max value is 50 charcters</div>
+            </div>
+    
+            <input class="form-control input" [ngClass]="{ 'is-invalid': submitted && f.model.errors }" [(ngModel)]="vehicleService.formData.model" type="text" formControlName="model" name="model" id="model" placeholder="Model">
+            <div *ngIf="submitted && f.model.errors" class="alert alert-danger">
+                <div *ngIf="f.model.errors.maxlength">Max value is 50 charcters</div>
+            </div>
+            <input class="form-control input" [ngClass]="{ 'is-invalid': submitted && f.registrationNumber.errors }" [(ngModel)]="vehicleService.formData.registrationNumber" type="text" formControlName="registrationNumber" name="registrationNumber" id="registrationNumber" placeholder="Registration number" required>
+            <div *ngIf="submitted && f.registrationNumber.errors" class="alert alert-danger">
+                <div *ngIf="f.registrationNumber.errors.required">Registration number is required</div>
+                <div *ngIf="f.registrationNumber.errors.maxlength">Max value is 10 charcters</div>
+            </div>
+            <input class="form-control input" [ngClass]="{ 'is-invalid': submitted && f.productionYear.errors }" [(ngModel)]="vehicleService.formData.productionYear" type="number" min="1900" formControlName="productionYear" name="productionYear" id="productionYear" placeholder="Production year" required>
+            <div *ngIf="submitted && f.productionYear.errors" class="alert alert-danger">
+                <div *ngIf="f.productionYear.errors.required">Production year is required</div>
+                <div *ngIf="f.productionYear.errors.min">Production year can not be lower than 1900</div>
+                <div *ngIf="f.productionYear.errors.max">Production year can not be higher than current year</div>
+
+            </div>
+            <!-- <input class="form-control input" [ngClass]="{ 'is-invalid': submitted && f.birthDate.errors }" [(ngModel)]="vehicleService.formData.birthDate" type="text" onfocus="(this.type='date')" formControlName="birthDate" name="birthDate" id="birthDate" placeholder="BirthDate" required>
+            <div *ngIf="submitted && f.birthDate.errors" class="alert alert-danger">
+                <div *ngIf="f.birthDate.errors.required">BirthDate is required</div>
+            </div>
+            <div *ngIf="employeeForm.errors" class="alert alert-danger">
+                <div *ngIf="employeeForm.errors.minimumAge">Minimum age is 18</div>
+            </div>             -->
+            <button type="submit" class="btn btn-primary">
+                <span>Add Vehicle</span>
+            </button>
+            <button type="button" (click)="resetForm()" class="btn btn-primary margin-auto">
+                <span>Clear</span>
+            </button>
+        </form>
+    </div>
+</div>

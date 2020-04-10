@@ -50,7 +50,6 @@ export class EmployeeFormComponent implements OnInit {
     'TopManagement',
     'HR'
   ];
-  @ViewChild(MatTable) table: MatTable<any>;
   constructor(
     private formBuilder: FormBuilder,
     public employeeService: EmployeeService) { }
@@ -166,6 +165,7 @@ export class EmployeeFormComponent implements OnInit {
       streetNo: "123",
       zipCode: "12-123"
     }
+    this.submitted=false;
   }
 
 }
