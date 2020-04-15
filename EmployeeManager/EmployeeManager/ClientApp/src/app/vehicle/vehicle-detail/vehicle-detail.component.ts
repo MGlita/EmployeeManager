@@ -32,21 +32,19 @@ export class VehicleDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.initTable();
+    
   }
 
   populateForm(veh: Vehicle){
     Object.assign(this.vehicleService.formData,veh);
-    this.vehicleService.formData.technicalInspectionStart = moment(veh.technicalInspectionStart).format('YYYY-MM-DD');
-    this.vehicleService.formData.technicalInspectionEnd = moment(veh.technicalInspectionEnd).format('YYYY-MM-DD');
-    this.vehicleService.formData.tachographStart = moment(veh.tachographStart).format('YYYY-MM-DD');
-    this.vehicleService.formData.tachographEnd = moment(veh.tachographEnd).format('YYYY-MM-DD');
-    this.vehicleService.formData.insuranceOCStart = moment(veh.insuranceOCStart).format('YYYY-MM-DD');
-    this.vehicleService.formData.insuranceOCEnd = moment(veh.insuranceOCEnd).format('YYYY-MM-DD');
-    this.vehicleService.formData.insuranceACStart = moment(veh.insuranceACStart).format('YYYY-MM-DD');
-    this.vehicleService.formData.insuranceACEnd = moment(veh.insuranceACEnd).format('YYYY-MM-DD');
-
-    console.log(new Date(veh.technicalInspectionStart).toLocaleDateString());
-    console.log(new Date(veh.technicalInspectionStart).toLocaleString());
+    this.vehicleService.formData.technicalInspectionStart = moment(veh.technicalInspectionStart).isValid()?moment(veh.technicalInspectionStart).format('YYYY-MM-DD'):null;
+    this.vehicleService.formData.technicalInspectionEnd = moment(veh.technicalInspectionEnd).isValid()?moment(veh.technicalInspectionEnd).format('YYYY-MM-DD'):null;
+    this.vehicleService.formData.tachographStart = moment(veh.tachographStart).isValid()?moment(veh.tachographStart).format('YYYY-MM-DD'):null;
+    this.vehicleService.formData.tachographEnd = moment(veh.tachographEnd).isValid()?moment(veh.tachographEnd).format('YYYY-MM-DD'):null;
+    this.vehicleService.formData.insuranceOCStart = moment(veh.insuranceOCStart).isValid()?moment(veh.insuranceOCStart).format('YYYY-MM-DD'):null;
+    this.vehicleService.formData.insuranceOCEnd = moment(veh.insuranceOCEnd).isValid()?moment(veh.insuranceOCEnd).format('YYYY-MM-DD'):null;
+    this.vehicleService.formData.insuranceACStart = moment(veh.insuranceACStart).isValid()?moment(veh.insuranceACStart).format('YYYY-MM-DD'):null;
+    this.vehicleService.formData.insuranceACEnd = moment(veh.insuranceACEnd).isValid()?moment(veh.insuranceACEnd).format('YYYY-MM-DD'):null;
     this.vehicleService.isFormOpen=true;
   }
 
@@ -56,9 +54,12 @@ export class VehicleDetailComponent implements OnInit {
       this.dataSource.data=this.vehicleService.vehicleList;
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
+      this.vehicleService.vehicleList.forEach(veh =>{
+        veh.color=this.setColor(veh.technicalInspectionEnd,veh.insuranceOCEnd,veh.insuranceACEnd);
+      })
     });
   }
-
+ 
   delete(vehicle:Vehicle){
     console.log(vehicle);
     this.vehicleService.deleteVehicle(vehicle.id).subscribe(res=>{
@@ -76,17 +77,32 @@ export class VehicleDetailComponent implements OnInit {
     let dayDiff = endDate.diff(new Date(), 'days',false)
     return isNaN(dayDiff)?"Not":dayDiff;
   }
-  // setColor(...dates:Date[]){
-  //   let res =
-  //   switch (key) {
-  //     case value:
-        
-  //       break;
-    
-  //     default:
-  //       break;
-  //   }
-  // }
+
+  setColor(...dates:string[]){
+    let daysArr = new Array();
+    dates.forEach(element => {
+      if(moment(element).isValid()){
+      daysArr.push(this.daysToEnd(new Date(element)));
+      }
+    });
+    if(daysArr!==undefined){
+    let dayMin = Math.min(...daysArr)
+    switch (true) {
+      case dayMin>=50:
+        return "#90ee90"
+        break;
+      case dayMin<50&&dayMin>=30:
+        return "#ffffba"
+        break;
+      case dayMin<30:
+        return "#ff726f"
+        break;
+      default:
+        break;
+    }
+    }
+  }
+
   resetForm(){
     this.vehicleService.formData={
       id:null,

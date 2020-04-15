@@ -68,7 +68,6 @@ export class VehicleFormComponent implements OnInit {
       return;
     }
     this.loading = true;
-
     if(this.vehicleService.formData.id==null)
       this.addVehicle();
 
@@ -119,6 +118,7 @@ export class VehicleFormComponent implements OnInit {
     this.model.insuranceOCEnd = this.f.insuranceOCEnd.value;
     this.model.insuranceACStart = this.f.insuranceACStart.value;
     this.model.insuranceACEnd = this.f.insuranceACEnd.value;
+    console.log(this.model);
     this.vehicleService.updateVehicle(this.model).subscribe(res=>{
       console.log(res);
       this.change.emit();

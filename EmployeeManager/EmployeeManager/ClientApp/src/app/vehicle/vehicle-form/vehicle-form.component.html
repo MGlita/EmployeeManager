@@ -44,11 +44,9 @@
                     <label for="technicalInspectionStart">Start:</label>
                     <label for="technicalInspectionEnd">End:</label><br>
                 </div>
-                <input class="input-row form-control" (focusout)="setDateInput(f.technicalInspectionStart.value,'technicalInspectionEnd',1)" [ngClass]="{ 'is-invalid': submitted && f.technicalInspectionStart.errors }" [(ngModel)]="vehicleService.formData.technicalInspectionStart"  type="date" formControlName="technicalInspectionStart" name="technicalInspectionStart" id="technicalInspectionStart">
-                <input disabled class="input-row form-control" [ngClass]="{ 'is-invalid': submitted && f.technicalInspectionEnd.errors }" [(ngModel)]="vehicleService.formData.technicalInspectionEnd" type="date" formControlName="technicalInspectionEnd" name="technicalInspectionEnd" id="technicalInspectionEnd">
-                <div *ngIf="submitted && f.technicalInspectionStart.errors" class="alert alert-danger">
-                    <div *ngIf="f.technicalInspectionStart.errors.required">Technical Inspection is required</div>
-                </div>
+                <input class="input-row form-control" (focusout)="setDateInput(f.technicalInspectionStart.value,'technicalInspectionEnd',1)" [(ngModel)]="vehicleService.formData.technicalInspectionStart"  type="date" formControlName="technicalInspectionStart" name="technicalInspectionStart" id="technicalInspectionStart">
+                <input disabled class="input-row form-control" [(ngModel)]="vehicleService.formData.technicalInspectionEnd" type="date" formControlName="technicalInspectionEnd" name="technicalInspectionEnd" id="technicalInspectionEnd">
+                
             </div>
 
             <div class="inp-border" *ngIf="f.vehicleType.value=='Tractor'">
@@ -59,9 +57,7 @@
                 </div>
                 <input class="input-row form-control" (focusout)="setDateInput(f.tachographStart.value,'tachographEnd',2)" [ngClass]="{ 'is-invalid': submitted && f.tachographStart.errors }" [(ngModel)]="vehicleService.formData.tachographStart" type="date" formControlName="tachographStart" name="tachographStart" id="tachographStart">
                 <input disabled class="input-row form-control" [ngClass]="{ 'is-invalid': submitted && f.tachographEnd.errors }" [(ngModel)]="vehicleService.formData.tachographEnd" type="date" formControlName="tachographEnd" name="tachographEnd" id="tachographEnd">
-                <div *ngIf="submitted && f.tachographStart.errors" class="alert alert-danger">
-                    <div *ngIf="f.tachographStart.errors.required">Technical Inspection is required</div>
-                </div>
+                
             </div>
 
             <div class="inp-border">
@@ -72,9 +68,7 @@
                 </div>
                 <input class="input-row form-control" (focusout)="setDateInput(f.insuranceOCStart.value,'insuranceOCEnd',1)" [ngClass]="{ 'is-invalid': submitted && f.insuranceOCStart.errors }" [(ngModel)]="vehicleService.formData.insuranceOCStart" type="date" formControlName="insuranceOCStart" name="insuranceOCStart" id="insuranceOCStart">
                 <input disabled class="input-row form-control" [ngClass]="{ 'is-invalid': submitted && f.insuranceOCEnd.errors }" [(ngModel)]="vehicleService.formData.insuranceOCEnd" type="date" formControlName="insuranceOCEnd" name="insuranceOCEnd" id="insuranceOCEnd">
-                <div *ngIf="submitted && f.insuranceOCStart.errors" class="alert alert-danger">
-                    <div *ngIf="f.insuranceOCStart.errors.required">Technical Inspection is required</div>
-                </div>
+               
             </div>
 
             <div class="inp-border">
@@ -85,9 +79,7 @@
                 </div>
                 <input class="input-row form-control" (focusout)="setDateInput(f.insuranceACStart.value,'insuranceACEnd',1)" [ngClass]="{ 'is-invalid': submitted && f.insuranceACStart.errors }" [(ngModel)]="vehicleService.formData.insuranceACStart" type="date" formControlName="insuranceACStart" name="insuranceACStart" id="insuranceACStart">
                 <input disabled class="input-row form-control" [ngClass]="{ 'is-invalid': submitted && f.insuranceACEnd.errors }" [(ngModel)]="vehicleService.formData.insuranceACEnd" type="date" formControlName="insuranceACEnd" name="insuranceACEnd" id="insuranceACEnd">
-                <div *ngIf="submitted && f.insuranceACStart.errors" class="alert alert-danger">
-                    <div *ngIf="f.insuranceACStart.errors.required">Technical Inspection is required</div>
-                </div>
+                
             </div>
             <!-- <input class="form-control input" [ngClass]="{ 'is-invalid': submitted && f.technicalInspectionStart.errors }" [(ngModel)]="vehicleService.formData.technicalInspectionStart" type="text" onfocus="(this.type='date')" formControlName="technicalInspectionStart" name="technicalInspectionStart" id="technicalInspectionStart" placeholder="technicalInspectionStart" required>
             <div *ngIf="submitted && f.technicalInspectionStart.errors" class="alert alert-danger">
