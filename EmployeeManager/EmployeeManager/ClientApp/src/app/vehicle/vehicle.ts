@@ -5,13 +5,13 @@ export class Vehicle {
     model:string;
     registrationNumber: string;
     productionYear:number;
-    technicalInspectionStart:Date;
-    technicalInspectionEnd:Date;
-    tachographStart:Date;
-    tachographEnd:Date;
-    insuranceOCStart:Date;
-    insuranceOCEnd:Date;
-    insuranceACStart:Date;
-    insuranceACEnd:Date;
+    technicalInspectionStart:string;
+    technicalInspectionEnd:string;
+    tachographStart:string;
+    tachographEnd:string;
+    insuranceOCStart:string;
+    insuranceOCEnd:string;
+    insuranceACStart:string;
+    insuranceACEnd:string;
     color:string;
 }

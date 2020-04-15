@@ -16,7 +16,7 @@ import * as moment from 'moment';
 })
 export class VehicleDetailComponent implements OnInit {
   
-  displayedColumns: string[] = ['vehicleType', 'make', 'model', 'registrationNumber', 'productionYear', 'technicalInsp', 'delete'];
+  displayedColumns: string[] = ['vehicleType', 'make', 'model', 'registrationNumber', 'productionYear', 'technicalInsp', 'tachograph', 'insuranceOC', 'insuranceAC', 'delete'];
   dataSource = new MatTableDataSource<Vehicle>();
   vehicleType: string[] = [
     'Car',
@@ -36,6 +36,17 @@ export class VehicleDetailComponent implements OnInit {
 
   populateForm(veh: Vehicle){
     Object.assign(this.vehicleService.formData,veh);
+    this.vehicleService.formData.technicalInspectionStart = moment(veh.technicalInspectionStart).format('YYYY-MM-DD');
+    this.vehicleService.formData.technicalInspectionEnd = moment(veh.technicalInspectionEnd).format('YYYY-MM-DD');
+    this.vehicleService.formData.tachographStart = moment(veh.tachographStart).format('YYYY-MM-DD');
+    this.vehicleService.formData.tachographEnd = moment(veh.tachographEnd).format('YYYY-MM-DD');
+    this.vehicleService.formData.insuranceOCStart = moment(veh.insuranceOCStart).format('YYYY-MM-DD');
+    this.vehicleService.formData.insuranceOCEnd = moment(veh.insuranceOCEnd).format('YYYY-MM-DD');
+    this.vehicleService.formData.insuranceACStart = moment(veh.insuranceACStart).format('YYYY-MM-DD');
+    this.vehicleService.formData.insuranceACEnd = moment(veh.insuranceACEnd).format('YYYY-MM-DD');
+
+    console.log(new Date(veh.technicalInspectionStart).toLocaleDateString());
+    console.log(new Date(veh.technicalInspectionStart).toLocaleString());
     this.vehicleService.isFormOpen=true;
   }
 

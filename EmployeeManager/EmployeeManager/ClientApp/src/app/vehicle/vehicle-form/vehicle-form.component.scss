@@ -56,3 +56,22 @@ select{
     margin:auto;
     display: flex;
 }
+.input-row{
+    width: 50%;
+    display:  inline;
+    justify-content: space-between;
+}
+.label-row{
+    display: flex;
+    justify-content: space-between;
+}
+.label-main{
+    font-size: large;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+.inp-border{
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    margin-bottom: 10px;
+}

@@ -29,8 +29,23 @@
         </ng-container>
 
         <ng-container matColumnDef="technicalInsp">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Techical inspection expiry </mat-header-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Technical inspection expiry </mat-header-cell>
         <mat-cell (click)="populateForm(element)" *matCellDef="let element"> {{daysToEnd(element.technicalInspectionEnd)}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="tachograph">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Tachograph expiry </mat-header-cell>
+        <mat-cell (click)="populateForm(element)" *matCellDef="let element"> {{daysToEnd(element.tachographEnd)}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="insuranceOC">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Insurance OC expiry </mat-header-cell>
+        <mat-cell (click)="populateForm(element)" *matCellDef="let element"> {{daysToEnd(element.insuranceOCEnd)}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="insuranceAC">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Insurance AC expiry </mat-header-cell>
+        <mat-cell (click)="populateForm(element)" *matCellDef="let element"> {{daysToEnd(element.insuranceACEnd)}}</mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="delete">
