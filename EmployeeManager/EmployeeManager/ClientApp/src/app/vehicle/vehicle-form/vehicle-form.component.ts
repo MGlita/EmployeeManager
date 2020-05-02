@@ -141,12 +141,17 @@ export class VehicleFormComponent implements OnInit {
       productionYear:null,
       technicalInspectionStart:null,
       technicalInspectionEnd:null,
+      technicalDays:"",
       tachographStart:null,
       tachographEnd:null,
+      tachographDays:"",
       insuranceOCStart:null,
       insuranceOCEnd:null,
+      insuranceOCDays:"",
       insuranceACStart:null,
       insuranceACEnd:null,
+      insuranceACDays:"",
+      minDay:"",
       color:"",
     }
     this.submitted=false;

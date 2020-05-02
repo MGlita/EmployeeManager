@@ -16,7 +16,7 @@ import * as moment from 'moment';
 })
 export class VehicleDetailComponent implements OnInit {
   
-  displayedColumns: string[] = ['vehicleType', 'make', 'model', 'registrationNumber', 'productionYear', 'technicalInsp', 'tachograph', 'insuranceOC', 'insuranceAC', 'delete'];
+  displayedColumns: string[] = ['vehicleType', 'make', 'model', 'registrationNumber', 'productionYear', 'technicalDays', 'tachographDays', 'insuranceOCDays', 'insuranceACDays', 'delete'];
   dataSource = new MatTableDataSource<Vehicle>();
   vehicleType: string[] = [
     'Car',
@@ -51,12 +51,17 @@ export class VehicleDetailComponent implements OnInit {
   initTable(){
     this.vehicleService.getAllVehicles().subscribe(res=>{
       this.vehicleService.vehicleList=res as Vehicle[];
+      this.setDays();
       this.dataSource.data=this.vehicleService.vehicleList;
+      this.vehicleService.vehicleList.forEach(veh =>{
+        let min = this.findMin(veh.technicalInspectionEnd,veh.tachographEnd,veh.insuranceOCEnd,veh.insuranceACEnd)
+        veh.minDay=min.toString();
+        veh.color = this.setColor(min);
+        console.log(veh);
+      })
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
-      this.vehicleService.vehicleList.forEach(veh =>{
-        veh.color=this.setColor(veh.technicalInspectionEnd,veh.insuranceOCEnd,veh.insuranceACEnd);
-      })
+      this.dataSource.sortingDataAccessor = (data, header) => data[header];
     });
   }
  
@@ -73,33 +78,46 @@ export class VehicleDetailComponent implements OnInit {
   }
 
   daysToEnd(date:Date){
+    if(date==null)return -999
     let endDate = moment(date);
     let dayDiff = endDate.diff(new Date(), 'days',false)
-    return isNaN(dayDiff)?"Not":dayDiff;
+    //console.log(dayDiff)
+    return dayDiff;
+    //return isNaN(dayDiff)?"Not":dayDiff;
   }
 
-  setColor(...dates:string[]){
+  setDays(){
+    this.vehicleService.vehicleList.forEach(veh =>{
+      veh.technicalDays=veh.technicalInspectionEnd?this.daysToEnd(new Date(veh.technicalInspectionEnd)).toString()  :"None";
+      veh.tachographDays=veh.tachographEnd?this.daysToEnd(new Date(veh.tachographEnd)).toString()  :"None";
+      veh.insuranceOCDays=veh.insuranceOCEnd?this.daysToEnd(new Date(veh.insuranceOCEnd)).toString()  :"None";
+      veh.insuranceACDays=veh.insuranceACEnd?this.daysToEnd(new Date(veh.insuranceACEnd)).toString()  :"None";
+    })
+  }
+
+  findMin(...dates:string[]){
     let daysArr = new Array();
     dates.forEach(element => {
       if(moment(element).isValid()){
       daysArr.push(this.daysToEnd(new Date(element)));
       }
     });
-    if(daysArr!==undefined){
-    let dayMin = Math.min(...daysArr)
+    return Math.min(...daysArr)
+  }
+
+  setColor(day){
     switch (true) {
-      case dayMin>=50:
+      case day>=50:
         return "#90ee90"
         break;
-      case dayMin<50&&dayMin>=30:
+      case day<50&&day>=30:
         return "#ffffba"
         break;
-      case dayMin<30:
+      case day<30:
         return "#ff726f"
         break;
       default:
         break;
-    }
     }
   }
 
@@ -113,12 +131,17 @@ export class VehicleDetailComponent implements OnInit {
       productionYear:null,
       technicalInspectionStart:null,
       technicalInspectionEnd:null,
+      technicalDays:"",
       tachographStart:null,
       tachographEnd:null,
+      tachographDays:"",
       insuranceOCStart:null,
       insuranceOCEnd:null,
+      insuranceOCDays:"",
       insuranceACStart:null,
       insuranceACEnd:null,
+      insuranceACDays:"",
+      minDay:"",
       color:"",
     }
   }

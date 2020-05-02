@@ -1,7 +1,7 @@
 <vehicle-form (change)="initTable()"></vehicle-form>
 <div class="data ">
 
-    <mat-table [dataSource]="dataSource" matSort class="table mat-table-hover">
+    <mat-table [dataSource]="dataSource" matSort matSortActive="minDay" matSortDirection="asc" class="table mat-table-hover">
     
         <ng-container matColumnDef="vehicleType">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Vehicle Type </mat-header-cell>
@@ -28,24 +28,29 @@
         <mat-cell (click)="populateForm(element)" *matCellDef="let element"> {{element.productionYear}} </mat-cell>
         </ng-container>
 
-        <ng-container matColumnDef="technicalInsp">
+        <ng-container matColumnDef="technicalDays">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Technical inspection expiry </mat-header-cell>
-        <mat-cell (click)="populateForm(element)" *matCellDef="let element"> {{daysToEnd(element.technicalInspectionEnd)}}</mat-cell>
+        <mat-cell (click)="populateForm(element)" *matCellDef="let element"> {{element.technicalDays}}</mat-cell>
         </ng-container>
 
-        <ng-container matColumnDef="tachograph">
+        <ng-container matColumnDef="tachographDays">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Tachograph expiry </mat-header-cell>
-        <mat-cell (click)="populateForm(element)" *matCellDef="let element"> {{daysToEnd(element.tachographEnd)}}</mat-cell>
+        <mat-cell (click)="populateForm(element)" *matCellDef="let element"> {{element.tachographDays}}</mat-cell>
         </ng-container>
 
-        <ng-container matColumnDef="insuranceOC">
+        <ng-container matColumnDef="insuranceOCDays">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Insurance OC expiry </mat-header-cell>
-        <mat-cell (click)="populateForm(element)" *matCellDef="let element"> {{daysToEnd(element.insuranceOCEnd)}}</mat-cell>
+        <mat-cell (click)="populateForm(element)" *matCellDef="let element"> {{element.insuranceOCDays}}</mat-cell>
         </ng-container>
 
-        <ng-container matColumnDef="insuranceAC">
+        <ng-container matColumnDef="insuranceACDays">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Insurance AC expiry </mat-header-cell>
-        <mat-cell (click)="populateForm(element)" *matCellDef="let element"> {{daysToEnd(element.insuranceACEnd)}}</mat-cell>
+        <mat-cell (click)="populateForm(element)" *matCellDef="let element"> {{element.insuranceACDays}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="minDay">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Minimal day</mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.minDay}}</mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="delete">
