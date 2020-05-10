@@ -1,13 +1,31 @@
 <div class="limiter">
-  <nav>
-    <a routerLink="/login" routerLinkActive="active">Login</a>
-    <a routerLink="/home" routerLinkActive="active">Home</a>
-    <a routerLink="/employees" routerLinkActive="active">Employees</a>
-    <a routerLink="/customers" routerLinkActive="active">Customers</a> 
-    <a routerLink="/login" routerLinkActive="active" (click)="logout()">Logout</a> 
+
+  <nav *ngIf="isLoggedIn()" class="navbar navbar-expand-lg navbar-light" style="background-color: #4f4f4f;">
+    <a routerLink="/home" class="navbar-brand"> <span>Home</span> </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="/employees"> <span>Employees</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="/customers"> <span>Customers</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="/vehicle"> <span>Trucks</span></a>
+        </li>
+      </ul>
+      <ul class="navbar-nav right">
+        <li class="nav-item active right">
+          <a class="nav-link" routerLink="/login" (click)="logout()"><span class="red">Logout</span></a>
+        </li>
+      </ul>
+    </div>
 
   </nav>
-
     
     <router-outlet></router-outlet>
 

@@ -1,5 +1,6 @@
 import { LoginService } from './login/login.service';
 import { Component, ViewEncapsulation } from '@angular/core';
+import { AuthService } from './auth/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -9,9 +10,12 @@ import { Component, ViewEncapsulation } from '@angular/core';
 })
 export class AppComponent {
   title = 'EmployeeManager';
-  constructor(private loginService: LoginService) {}
+  constructor(private loginService: LoginService, private authService: AuthService) {}
   
   logout(){
     this.loginService.logout();
+  }
+  isLoggedIn(){
+    return this.authService.isAuthenticated();
   }
 }
